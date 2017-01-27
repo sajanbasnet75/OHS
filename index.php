@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
-	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="jquery/jquery.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 
@@ -19,17 +19,17 @@
  <div class="header-top">
  <div class="container-fluid">
           <div class="col-sm-4 col-xs-4" id="top-lefts">         	
-            	<a href="#"><span class="glyphicon glyphicon-earphone" style="color:#42b3e5;"></span> Call Us : (+01) 123 456 7896</a>
+            	<a href="#"><span class="glyphicon glyphicon-earphone" style="color:#42b3e5;"></span> Call Us : (+977) 1234567896</a>
           </div>
           <div class="col-sm-4 col-xs-4" id="top-lefts"> 
-                <a href="#"><span class="glyphicon glyphicon-envelope" style="color:#42b3e5;" ></span> Email Us : ohs@ourdomain.com</a>
+                <a href="#"><span class="glyphicon glyphicon-envelope" style="color:#42b3e5;" ></span> Email Us : codemandu@domain.com</a>
           </div>
           <div class="col-sm-4 col-xs-4" id="top-right">
-            			<a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-          </div>
+            			      <a href="#"><span class="fa fa-facebook"></span></a>
+                        <a href="#"><span class="fa fa-google-plus">&nbsp &nbsp</span></a>
+                        <a href="#"><span class="fa fa-twitter">&nbsp &nbsp</span></a>
+                       
+                       </div>
  </div>
  </div>
 </header>
