@@ -1,4 +1,6 @@
-
+<?php
+include("dbconnection.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,7 @@
 	<link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="jquery/jquery.js"></script>
+   <script src="jquery/nav-shrink.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 
 </head>
@@ -33,36 +36,38 @@
  </div>
  </div>
 </header>
- <?php
+
+<!--main navigation part with logo-->
+<?php
 include("navig.php");
 ?>
- 
+ <!--contaiener of services options-->
 <div class="container-fluid mybanner">
        <div class="container banner-content" >
-         <span ><center style="margin-top:80px;">WELCOME TO OHS</center></span> </br>
+         <span ><center style="margin-top:85px;">WELCOME TO OHS</center></span> </br>
         <div class="row banner-choices ">
-            <a href="#"><div class="col-sm-2 pull-left choices1">
+            <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
                    <button type="button" class="btn btn-primary" style="width:140px;" >Book Appointment</button>
             </div></a>
-            <a href="#"><div class="col-sm-2 pull-right choices1">
+            <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
                      <div class="icon-main"><img src="images/video.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
                        <button type="button" class="btn btn-primary" style="width:140px;">Video Tutorial</button>
                     
            </div></a>
-           <a href="#"><div class="col-sm-2 pull-left choices1">
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
                 <div class="icon-main"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
                   <button type="button" class="btn btn-primary" style="width:140px;">Pay Online</button>
             </div></a>
-           <a href="#"><div class="col-sm-2 pull-right choices1">
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
                      <div class="icon-main"><img src="images/find-doctor.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
                     <button type="button" class="btn btn-primary" style="width:140px;">Find A Doctor</button>
             </div></a>
-           <a href="#"><div class="col-sm-2 pull-left choices1">
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
                      <div class="icon-main"><img src="images/booking.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
                       <button type="button" class="btn btn-primary" style="width:140px;">Heath</button>
           </div></a>
-           <a href="#"><div class="col-sm-2 pull-right choices1">
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
                      <div class="icon-main"><img src="images/health-records.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
                         <button type="button" class="btn btn-primary" style="width:140px;">Health Records</button>
             </div></a>
@@ -70,5 +75,14 @@ include("navig.php");
     </div>
  
  </div>
+
+</div>
+
+<!--news part-->
+<?php
+include("news-headlines.php");
+?>
+
+ 
 </body>
 </html>

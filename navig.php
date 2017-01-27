@@ -1,9 +1,9 @@
 
-<nav class="navbar navbar-default " role="navigation" id="main-nav">
+<nav class="navbar navbar-default main-nav" role="navigation" >
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header navbar-left" >
-             <a class="navbar-brand " href="#">  <a href="index.php"><img src="images/logo.png" class="img-responsive"  id="logo" alt="logo"   ></a></a>
+             <a class="navbar-brand "> <a href="index.php" style="text-decoration:none;"><span class="brand-text"></span><img src="images/logo.png" class="img-responsive pull-left logoimg"  id="logo" alt="logo"></a></a>
                     <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
                         <span class="sr-only" >Toggle Navigation</span>
                         <span class="icon-bar"></span>
@@ -16,7 +16,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1" >
                     
-                    <ul class="nav navbar-nav navbar-right " id="navi">
+                    <ul class="nav navbar-nav navbar-right navi">
                         <li class="active"><a href="index.php">Home<span class="sr-only">(current)</span></a></li>
                         <li><a href="#">About Us</a></li>
                         <li class="dropdown">
@@ -52,7 +52,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Contact Us</a></li>
-                         <a href="#"><button type="button" class="btn btn-info" style="margin-top: 6px;">Get started</button></a>
+                         <a href="#"><button type="button" class="btn btn-info" style="margin-top: 3px; color:#000; font-size:20px;">Get started</button></a>
                     </ul>
                     
 
