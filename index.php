@@ -22,12 +22,12 @@ include("dbconnection.php");
  <div class="header-top">
  <div class="container-fluid">
           <div class="col-sm-4 col-xs-4" id="top-lefts">         	
-            	<a href="#"><span class="glyphicon glyphicon-earphone" style="color:#42b3e5;"></span> Call Us : (+977) 1234567896</a>
+            	<a href="#"><i class="fa fa-phone" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp (+977) 1234567896</a>
           </div>
           <div class="col-sm-4 col-xs-4" id="top-lefts"> 
-                <a href="#"><span class="glyphicon glyphicon-envelope" style="color:#42b3e5;" ></span> Email Us : codemandu@domain.com</a>
+                <a href="#"><i class="fa fa-envelope" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp codemandu@domain.com</a>
           </div>
-          <div class="col-sm-4 col-xs-4" id="top-right">
+          <div class="col-sm-4 col-xs-4 pull-right" id="top-right">
             			      <a href="#"><span class="fa fa-facebook"></span></a>
                         <a href="#"><span class="fa fa-google-plus">&nbsp &nbsp</span></a>
                         <a href="#"><span class="fa fa-twitter">&nbsp &nbsp</span></a>
@@ -44,7 +44,7 @@ include("navig.php");
  <!--contaiener of services options-->
 <div class="container-fluid mybanner">
        <div class="container banner-content" >
-         <span ><center style="margin-top:85px;">WELCOME TO OHS</center></span> </br>
+         <h1><center style="margin-top:85px;">WELCOME TO OHS</center></h1> </br>
         <div class="row banner-choices ">
             <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
