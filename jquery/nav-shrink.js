@@ -4,7 +4,7 @@ $(document).ready(function(){
          $('.navbar').addClass('navbar-fixed-top');
          $('.navbar-nav').removeClass('navi');
          $('.logoimg').addClass('logo-brand');
-         $('.brand-text').html('OHS').slideIn(3000);
+         $('.brand-text').html('OHS');
 
         }
       else{

@@ -1,3 +1,4 @@
+<?php include("login.php"); ?>
 
 <nav class="navbar navbar-default main-nav" role="navigation" >
             <div class="container-fluid">
@@ -52,7 +53,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Contact Us</a></li>
-                         <a href="#"><button type="button" class="btn btn-info" style="margin-top: 3px; color:#000; font-size:20px;">Get started</button></a>
+                         <a href="#" data-toggle="modal" data-target="#login"><button type="button" class="btn btn-info" style="margin-top: 3px; color:#000; font-size:20px;">Get started</button></a>
                     </ul>
                     
 
