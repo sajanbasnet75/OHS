@@ -18,7 +18,7 @@
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1" >
                     
                     <ul class="nav navbar-nav navbar-right navi">
-                        <li class="active"><a href="index.php">Home<span class="sr-only">(current)</span></a></li>
+                        <li class="active aaa"><a href="index.php">Home<span class="sr-only">(current)</span></a></li>
                         <li><a href="#">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Our Services<span class="caret"></span></a>
@@ -53,7 +53,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Contact Us</a></li>
-                         <a href="#" data-toggle="modal" data-target="#login"><button type="button" class="btn btn-info" style="margin-top: 3px; color:#000; font-size:20px;">Get started</button></a>
+                         <a href="#" data-toggle="modal" data-target="#login"><button type="button" class="btn btn-info" style="margin-top:3px; color:#000; font-size:20px;">Get started</button></a>
                     </ul>
                     
 

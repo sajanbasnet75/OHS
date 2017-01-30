@@ -5,7 +5,7 @@ $(document).ready(function(){
          $('.navbar-nav').removeClass('navi');
          $('.logoimg').addClass('logo-brand');
          $('.brand-text').html('OHS');
-
+        
         }
       else{
 	      $('.navbar').removeClass('navbar-fixed-top');

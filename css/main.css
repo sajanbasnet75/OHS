@@ -10,7 +10,9 @@
     #top-lefts{
         display: none;
     } 
-
+    #welcome-text{
+        font-size: 36px;
+    }
 }
 
 .header-top{

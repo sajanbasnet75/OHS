@@ -44,7 +44,7 @@ include("navig.php");
  <!--contaiener of services options-->
 <div class="container-fluid mybanner">
        <div class="container banner-content" >
-         <h1><center style="margin-top:85px;">WELCOME TO OHS</center></h1> </br>
+         <h1 id="welcome-text"><center style="margin-top:85px;">WELCOME TO OHS</center></h1> </br>
         <div class="row banner-choices ">
             <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 

@@ -21,7 +21,7 @@
 	        <div class="modal-footer">
 	          <input type="submit" class="btn btn-primary btn-block" name="submit" style="font-weight:bold;" value="LogIn">
 	          <hr>
-	          <h5 class="pull-left">Not Registered yet? Register <a href="#" style=" font-size:20px; font-family:Times New Roman, Times, serif;">here</a></h5>
+	          <h5 class="pull-left">Not Registered Yet? Register <a href="#" style=" font-size:20px; font-family:Times New Roman, Times, serif;">here</a></h5>
 	        </div>
 		</div>
 	</div>
