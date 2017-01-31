@@ -13,6 +13,21 @@
     #welcome-text{
         font-size: 36px;
     }
+    #choice-mob{
+    background-color: #00102a;
+    width: 142px;
+    margin: 25px 8.5px 26px 8.5px;
+    border-radius: 8px;
+    }
+
+    #choice-mob>button{
+        width: 104px;
+       margin: 10px 4px 10px 4px;
+       position: center;
+       font-size: 10px;
+       font-weight: bold;
+       padding: 8px;
+    }
 }
 
 .header-top{
@@ -86,6 +101,7 @@ border-radius: 8px;
 }
 
 .choices1>button{
+    width: 140px;
    margin: 10px 4px 10px 4px;
    position: center;
 

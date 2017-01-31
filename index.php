@@ -46,30 +46,31 @@ include("navig.php");
        <div class="container banner-content" >
          <h1 id="welcome-text"><center style="margin-top:85px;">WELCOME TO OHS</center></h1> </br>
         <div class="row banner-choices ">
-            <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
+            <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
-                   <button type="button" class="btn btn-primary" style="width:140px;" >Book Appointment</button>
+                   <button type="button" class="btn btn-primary"  >Book Appointment</button>
             </div></a>
-            <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
+           
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
+                <div class="icon-main"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
+                  <button type="button" class="btn btn-primary" >Pay Online</button>
+            </div></a>
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
+                     <div class="icon-main"><img src="images/find-doctor.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
+                    <button type="button" class="btn btn-primary" >Find A Doctor</button>
+            </div></a>
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
+                     <div class="icon-main"><img src="images/booking.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
+                      <button type="button" class="btn btn-primary" >Heath</button>
+          </div></a>
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
                      <div class="icon-main"><img src="images/video.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                       <button type="button" class="btn btn-primary" style="width:140px;">Video Tutorial</button>
+                       <button type="button" class="btn btn-primary" >Video Tutorial</button>
                     
            </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
-                <div class="icon-main"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                  <button type="button" class="btn btn-primary" style="width:140px;">Pay Online</button>
-            </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
-                     <div class="icon-main"><img src="images/find-doctor.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                    <button type="button" class="btn btn-primary" style="width:140px;">Find A Doctor</button>
-            </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1">
-                     <div class="icon-main"><img src="images/booking.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                      <button type="button" class="btn btn-primary" style="width:140px;">Heath</button>
-          </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1">
+           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
                      <div class="icon-main"><img src="images/health-records.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                        <button type="button" class="btn btn-primary" style="width:140px;">Health Records</button>
+                        <button type="button" class="btn btn-primary" >Health Records</button>
             </div></a>
        </div>     
     </div>
