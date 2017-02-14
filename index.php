@@ -5,19 +5,17 @@ include("dbconnection.php");
 <html>
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>..ohs..</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="jquery/jquery.js"></script>
-   <script src="jquery/nav-shrink.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>..ohs..</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="bootstrap/js/bootstrap.js"></script>
+     <?php include("jquery-ajax-links.php"); ?>
 </head>
-<body>
+<body class="ee">
  <header class="main-header">
  <div class="header-top">
  <div class="container-fluid">
@@ -36,7 +34,6 @@ include("dbconnection.php");
  </div>
  </div>
 </header>
-
 <!--main navigation part with logo-->
 <?php
 include("navig.php");
@@ -77,6 +74,11 @@ include("navig.php");
  
  </div>
 
+</div>
+
+<div class="bg-info clearfix">
+  <button class="btn btn-secondary pull-left">Example Button floated left</button>
+  <button class="btn btn-secondary pull-right">Example Button floated right</button>
 </div>
 
 <!--news part-->
