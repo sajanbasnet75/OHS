@@ -1,7 +1,7 @@
 
  <!--news main part-->
 <center><h1 class="news-headline"> NEWS HEADLINES</h1></center>
-<div class="ee">
+<div class="">
    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="background-color:#00102a;">
    	    <!--news header-->
    	   <div class="news-header" style="color:red;">

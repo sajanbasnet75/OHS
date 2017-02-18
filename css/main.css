@@ -7,7 +7,6 @@
      	float: left;
      	color: red;
      }   
-   
     #top-lefts{
         display: none;
     } 
@@ -135,6 +134,4 @@ border-radius: 8px;
     text-align: center;
     top: -47px;
     width: 84px;
-}
-.ee{background:rgba(0, 0, 0, 0) url("../images/bg.jpg") no-repeat scroll 0 0/cover;padding:0;
 }
