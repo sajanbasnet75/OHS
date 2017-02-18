@@ -3,7 +3,7 @@ $(document).ready(function(){
       if($(document).scrollTop()>120){
          $('.navbar').addClass('navbar-fixed-top');
          $('.navbar-nav').removeClass('navi');
-         $('.logoimg').addClass('logo-brand');
+         $('.logoimg').hide();
          $('.brand-text').html('OHS');
         
         }
@@ -12,7 +12,7 @@ $(document).ready(function(){
 	       $('.navbar-nav').addClass('navi');
 	        $('.logoimg').removeClass('logo-brand');
           $('.brand-text').html('');
-
+           $('.logoimg').show();
           }
     });
 });
