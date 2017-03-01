@@ -1,8 +1,4 @@
-<?php 
-  include ("register.php");
-?>       
-	        
-<div id="login" class="modal fade">
+<div id="register" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content" >
 	        <div class="modal-header text-center" >
@@ -25,8 +21,8 @@
 	        <div class="modal-footer">
 	          <input type="submit" class="btn btn-primary btn-block" name="submit" style="font-weight:bold;" value="LogIn">
 	          <hr>
-	          <h5 class="pull-left">Not Registered Yet? Register <a href="#" style=" font-size:20px; font-family:Times New Roman, Times, serif;" data-target="#register" data-toggle="modal" data-dismiss="modal">here</a></h5>
-	           </div>
+	          <h5 class="pull-left">Not Registered Yet? Register <a href="#" style=" font-size:20px; font-family:Times New Roman, Times, serif;" data-target="#register" data-toggle="modal" >here</a></h5>
+	        </div>
 		</div>
 	</div>
 		

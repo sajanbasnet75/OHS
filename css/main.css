@@ -50,16 +50,23 @@ font-size: 12px;
 }
 
 .main-nav{
+    border:none;
 	border-radius: 0px;
-	font-weight: 500;
-	font-size: 18px;
-	 font-family: "Times New Roman", Times, serif;
+	
+	font-size: 17px;
+	
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 0px;
-    padding-right: 6px;
+    color: red;
+    padding: 4px;
+background-color: rgba(255, 255, 255, 0.4);
+
 
 }
+
 .navi{
     margin-top:29px;
+
 }
 
 .brand-text{
@@ -69,17 +76,21 @@ color:#00102a;
 }
 
 .mybanner{
-background:rgba(0, 0, 0, 0) url("../images/banner.png") no-repeat scroll 0 0/cover;padding:0;
+background:rgba(0, 0, 0, 0) url("../images/banne.jpg") no-repeat fixed 0 0/cover;
+
+
+
+padding:0;
 background-position: center;
-    background-position-x: 50%;
-    background-position-y: 50%;
+    background-position-x: 48%;
+    background-position-y: 40%;
 
 }
 
 .banner-content >h1{
    color: #00102a;
-   font-weight:600;
-   font-size: 54px;
+   font-weight:500;
+   font-size: 60px;
  font-family: "Times New Roman", Times, serif;
 position: center;
 }
@@ -131,4 +142,43 @@ border-radius: 8px;
     text-align: center;
     top: -47px;
     width: 84px;
+}
+
+/*booking page class starts*/
+
+.book-banners{
+background:rgba(0, 0, 0, 0) url("../images/bann.jpg") no-repeat fixed 0 0/cover;;
+padding:0;
+
+background-position: center;
+    background-position-x: 40%;
+    background-position-y: 50%;
+    height: 560px;
+
+}
+
+.select {
+    border: 4px solid rgba(00, 10, 00, 0.3);
+    border-radius: 10px;
+
+    margin-top: 6px;
+      
+}
+.specialist{
+   font-weight:100;
+   font-size: 20px;
+ font-family: "Times New Roman";
+ height: 50px;
+}
+
+
+
+/*loading image*/
+.loader{
+    opacity: 0.7;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+background:  rgba(242,245,255,.8)url("../images/loading.gif") no-repeat 50% 55%;
 }
