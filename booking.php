@@ -8,7 +8,7 @@ include("navig.php") ;?>
 		<form action="" method="POST" role="form">
 			<div class="col-sm-4 ">
 				<div class="select">
-					<select name="" id="input" class="form-control specialist" required="required" title="specialist is required">
+					<select name="" id="input" class="form-control specialist " required="required" title="specialist is required">
 						<option > Select Specialist</option>
 						<optgroup label="Top Specialist">
 						<option value="1">Cardiologist</option>
