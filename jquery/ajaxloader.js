@@ -8,7 +8,7 @@ $(document).ready(function(){
           $('.mybanner').addClass('loader');
         },
         success:function(data){
-            $('.mybanner').html(data).removeClass('container-fluid').removeClass('loader').removeClass('mybanner').addClass("book-banners");
+            $('.mybanner').html(data).removeClass('container-fluid').removeClass('loader').removeClass('mybanner').addClass("book-banners").addClass('bg-color');
          }
                           
 

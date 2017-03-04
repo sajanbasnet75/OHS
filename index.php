@@ -12,11 +12,12 @@ include("dbconnection.php");
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <link rel="stylesheet" href="css/animate.css"/>
+   
   <?php include("jquery-ajax-links.php");?>
   <script src="bootstrap/js/bootstrap.js"></script>
 </head>
-<body>
+<body >
  <header class="main-header">
  <div class="header-top">
  <div class="container-fluid">
@@ -40,11 +41,12 @@ include("dbconnection.php");
 
  <!--contaiener of services options-->
 <div class="container-fluid mybanner">
+<div class="bg-color">
 <?php
 include("navig.php");
 ?>
-       <div class="container banner-content" >
-         <h1 id="welcome-text" class="text-center" style="margin-top:85px;">WELCOME TO OHS</h1> </br>
+       <div class="container banner-content fadeInUp" >
+         <h1 id="welcome-text" class="text-center " style="margin-top:85px;">WELCOME TO OHS</h1> </br>
         <div class="row banner-choices ">
             <a href="#" class="opt1"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
@@ -77,6 +79,7 @@ include("navig.php");
  
  </div>
 
+</div>
 </div>
 
 <!--news part-->
