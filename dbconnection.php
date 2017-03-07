@@ -9,6 +9,6 @@ $mysql_connect = @mysqli_connect($mysql_host, $mysql_user, $mysql_pass);
 $mysql_select = @mysqli_select_db($mysql_connect, $mysql_db);
 if(!$mysql_connect || ! $mysql_select)
 {
-	die($conn_error);
+	//die($conn_error);
 }
 ?>
