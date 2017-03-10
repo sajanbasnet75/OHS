@@ -40,15 +40,15 @@ include("dbconnection.php");
 <!--main navigation part with logo-->
 
  <!--contaiener of services options-->
-<div class="container-fluid mybanner">
+<div class="container-fluid book-banners">
 <div class="bg-color">
 <?php
 include("navig.php");
 ?>
-       <div class="container banner-content fadeInUp" >
+       <div class="container banner-content " >
          <h1 id="welcome-text" class="text-center " style="margin-top:85px;">WELCOME TO OHS</h1> </br>
         <div class="row banner-choices ">
-            <a href="#" class="opt1"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
+            <a href="booking.php" class="opt1"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
                   <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
                    <button type="button" class="btn btn-primary"  >Book Appointment</button>
             </div></a>
