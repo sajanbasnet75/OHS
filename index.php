@@ -45,7 +45,7 @@ include("dbconnection.php");
 <?php
 include("navig.php");
 ?>
-       <div class="container banner-content fadeInUp" >
+       <div class="container banner-content " >
          <h1 id="welcome-text" class="text-center " style="margin-top:85px;">WELCOME TO OHS</h1> </br>
         <div class="row banner-choices ">
             <a href="#" class="opt1"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
