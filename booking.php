@@ -1,24 +1,7 @@
 <!--page for booking appointment-->
 <?php
 include("dbconnection.php");	
-	if(isset($_GET['submit'])){
-		$field=$_GET['field'];
-		if($field=="all")
-		$field="%";
-		$key=$_GET['key'];
-		if (empty($key)) {
-		$key="%";
-		}
-		$query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key'";
-		$query_run=mysqli_query($connect,$query);
-		if(mysqli_num_rows($query_run)==NULL){
-		echo'<h4 style="margin-left:4%">No result found</h4>';
-		}
-		else{ 
-			  include("doctorlist.php");				         
-	         }
 
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +39,7 @@ include("dbconnection.php");
 			<div class="col-sm-4 ">
 				<div class="select">
 					<select name="field" id="input" class="form-control specialist " required="required" title="specialist is required" >
-						<option value=""> Select Specialist</option>
+						<option value="">Select Specialist</option>
 						<option value='all'>All</option>
 						<optgroup label="Top Specialist">
 						<option value="Cardiologist">Cardiologist</option>
@@ -90,8 +73,29 @@ include("dbconnection.php");
 			</div>
 
 		</form>
-	</div>
+		</div>
+		<?php
+			if(isset($_GET['submit'])){
+				$field=$_GET['field'];
+				if($field=="all")
+					$field="%";
+				$key=$_GET['key'];
+				if (empty($key))
+					$key="%";
+				$key='%'.$key.'%';
+				$query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key'";
+				$query_run=mysqli_query($connect,$query);
+				if(mysqli_num_rows($query_run)==NULL){
+					echo'<h4 style="margin-left:4%">No result found</h4>';
+				}
+				else{ 
+					include("doctorlist.php");				         
+	         	}
+	     }
+	    ?>
+
 </div>
 </div>
+<?php  include("top_specialist.php"); ?>
 </body>
 </html>
