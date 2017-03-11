@@ -84,7 +84,7 @@ background-position: center;
 
 }
 .bg-color{
-    background-color: RGBA(250 ,250, 255, 0.24);
+    background-color: RGBA(250 ,250, 255, 0.1);
     min-height: 650px;
 }
 
@@ -131,7 +131,7 @@ border-radius: 8px;
 }
 .icon-main {
     background:#ffffff none repeat scroll 0 0;
-    border: 5px solid #c8d9dd;
+    border: 5px solid #c0b0ed;
    
     border-radius: 100%;
     height: 84px;

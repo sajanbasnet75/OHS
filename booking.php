@@ -39,7 +39,7 @@ include("dbconnection.php");
 			<div class="col-sm-4 ">
 				<div class="select">
 					<select name="field" id="input" class="form-control specialist " required="required" title="specialist is required" >
-						<option value=""> Select Specialist</option>
+						<option value="">Select Specialist</option>
 						<option value='all'>All</option>
 						<optgroup label="Top Specialist">
 						<option value="Cardiologist">Cardiologist</option>
@@ -93,8 +93,9 @@ include("dbconnection.php");
 	         	}
 	     }
 	    ?>
-	</div>
+
 </div>
 </div>
+<?php  include("top_specialist.php"); ?>
 </body>
 </html>

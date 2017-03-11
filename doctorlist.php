@@ -1,4 +1,3 @@
-
 <div class="container" style="padding: 2%; ">
   <div class="row">
   <div class="col-md-3"><b>Doctor</b></div>
@@ -6,7 +5,7 @@
   <div class="col-md-3">&nbsp;</div>
   <div class="col-md-3">&nbsp;</div>
   </div>
-	<?php  while($row=mysqli_fetch_assoc($query_run)){?>
+	<?php  while($row=mysqli_fetch_assoc($query_run)){?> 
     </br>
 	<div class="row">
 	<div class="col-md-3"><?php echo $row['name']; ?></div>
