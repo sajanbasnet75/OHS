@@ -53,11 +53,11 @@
                             </ul>
                         </li>
                         <li><a href="#" style="color:#00102a;">Contact Us</a></li>
-                         <a  data-toggle="modal" data-target="#login"><button type="button" class="btn btn-info" style="margin-top:3px; color:#ffd; font-size:18px;">Get started</button></a>
+                         <button type="button"  data-toggle="modal" data-target="#login"  class="btn btn-info" style="margin-top:3px; color:#ffd; font-size:18px;">Get started</button>
                     </ul>
                     
 
-                   
+   
                 </div><!-- navbar collapse end -->
             </div><!-- container-fluid end -->
         </nav>

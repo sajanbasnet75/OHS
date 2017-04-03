@@ -35,6 +35,7 @@ include("dbconnection.php");
                 
  <div class="container banner-content " >
 	 <h1 id="welcome-text"><center style="margin-top:100px; margin-bottom:25px;">Find And Book Appointments</center></h1> </br>
+		
 		<form action="" method="GET" role="form">
 			<div class="col-sm-4 ">
 				<div class="select">

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ $(document).ready(function(){
 	$('a.opt1').on('click',function(){
         $.ajax('booking.php',{
         

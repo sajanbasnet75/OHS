@@ -1,4 +1,4 @@
-i
+
  <!--news main part-->
 <center><h1 class="news-headline"> NEWS HEADLINES</h1></center>
 <div class="">
