@@ -4,7 +4,21 @@ include("include/dbconnection.php");
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
    <?php include("include/head.php"); ?>
+=======
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>..ohs..</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/animate.css"/>
+   
+  <?php include("jquery-ajax-links.php");?>
+  <script src="bootstrap/js/bootstrap.js"></script>
+>>>>>>> origin/master
 </head>
 <body >
  <?php include('include/header.php'); ?>
