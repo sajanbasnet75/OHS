@@ -1,28 +1,4 @@
 $(document).ready(function(){
-<<<<<<< HEAD
-=======
-   $(window).scroll(function(){
-      if($(document).scrollTop()>500){
-         $('.navbar').addClass('navbar-fixed-top').css("background-color", "white");
-         $('.navbar-nav').removeClass('navi');
-         $('.logoimg').hide();
-         $('.brand-text').html('OHS');
-             
-        }
-      else{
-      $('.navbar').removeClass('navbar-fixed-top').css("background-color", "");;
-      $('.navbar-nav').addClass('navi');
-      $('.logoimg').removeClass('logo-brand');
-      $('.brand-text').html('');
-       $('.logoimg').show();
-      }
-    });
-
-var hey=$('img');
-
-
-
->>>>>>> origin/master
 /*popup*/
 if($(window).width()>500){
    $('.main-nav').data('size','big');
@@ -38,7 +14,6 @@ $(this).animate({
 height:'-=13px'
 },-12);
 });
-}
 
 
 $('.navi>li>a').mouseenter(function() {
@@ -47,7 +22,6 @@ $(this).css('background-color', ' #06a5e0');
 $('.navi>li>a').mouseleave(function() {
 $(this).css('background-color', '');
 });
-<<<<<<< HEAD
 }
 else{
 
@@ -57,8 +31,6 @@ else{
    }
 });
 
-=======
->>>>>>> origin/master
 
 $(window).scroll(function(){
      if($(document).scrollTop()>0){
@@ -90,8 +62,3 @@ else
         }
       } 
 });
-
-
-
-
-
