@@ -1,41 +1,13 @@
 <?php
-include("dbconnection.php");
+include("include/dbconnection.php");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>..ohs..</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/animate.css"/>
-   
-  <?php include("jquery-ajax-links.php");?>
-  <script src="bootstrap/js/bootstrap.js"></script>
+   <?php include("include/head.php"); ?>
 </head>
 <body >
- <header class="main-header">
- <div class="header-top">
- <div class="container-fluid">
-          <div class="col-sm-4 col-xs-4" id="top-lefts">         	
-            	<a href="#"><i class="fa fa-phone" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp (+977) 1234567896</a>
-          </div>
-          <div class="col-sm-4 col-xs-4" id="top-lefts"> 
-                <a href="#"><i class="fa fa-envelope" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp codemandu@domain.com</a>
-          </div>
-          <div class="col-sm-4 col-xs-4 pull-right" id="top-right">
-            			      <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-google-plus">&nbsp &nbsp</span></a>
-                        <a href="#"><span class="fa fa-twitter">&nbsp &nbsp</span></a>
-                       
-                       </div>
- </div>
- </div>
-</header>
+ <?php include('include/header.php'); ?>
 
 <!--main navigation part with logo-->
 
@@ -43,36 +15,31 @@ include("dbconnection.php");
 <div class="container-fluid book-banners">
 <div class="bg-color">
 <?php
-include("navig.php");
+include("include/navig.php");
 ?>
        <div class="container banner-content " >
-         <h1 id="welcome-text" class="text-center " style="margin-top:85px;">WELCOME TO OHS</h1> </br>
-        <div class="row banner-choices ">
-            <a href="booking.php" class="opt1"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
-                  <div class="icon-main "><img src="images/booking.png"alt="booking" class="img-responsive icon-pic"></div> </br> </br> 
+         <h1 id="welcome-text" class="text-center" style="margin-top:75px;">WELCOME TO OHS</h1> </br>
+        <div class="row banner-choices container-fluid" >
+            <a href="booking.php" class="opt1"> <div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
+                  <div class="icon-main" id="icon-mob"><img src="images/find-doctor.png"alt="booking" class="img-responsive icon-pic" id="pic-mob" ></div> </br> </br> 
                    <button type="button" class="btn btn-primary"  >Book Appointment</button>
-            </div></a>
+            </div> </a>
            
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
-                <div class="icon-main"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                  <button type="button" class="btn btn-primary" >Pay Online</button>
+          <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
+                     <div class="icon-main" id="icon-mob"><img src="images/health-records.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
+                        <button type="button" class="btn btn-primary" >Health Records</button>
             </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
-                     <div class="icon-main"><img src="images/find-doctor.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                    <button type="button" class="btn btn-primary" >Find A Doctor</button>
-            </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
-                     <div class="icon-main"><img src="images/booking.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                      <button type="button" class="btn btn-primary" >Heath</button>
-          </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-left choices1" id="choice-mob">
-                     <div class="icon-main"><img src="images/video.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
+
+           <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
+                     <div class="icon-main" id="icon-mob"><img src="images/video.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
                        <button type="button" class="btn btn-primary" >Video Consult</button>
                     
            </div></a>
-           <a href="#"><div class="col-sm-2 col-xs-12 pull-right choices1" id="choice-mob">
-                     <div class="icon-main"><img src="images/health-records.png"alt="icon" class="img-responsive icon-pic"></div> </br> </br> 
-                        <button type="button" class="btn btn-primary" >Health Records</button>
+
+           
+             <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
+                <div class="icon-main" id="icon-mob"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
+                  <button type="button" class="btn btn-primary" >Pay Online</button>
             </div></a>
        </div>     
     </div>
@@ -84,7 +51,7 @@ include("navig.php");
 
 <!--news part-->
 <?php
-include("news-headlines.php");
+include("include/news-headlines.php");
 ?>
 
  

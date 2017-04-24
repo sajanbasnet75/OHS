@@ -1,5 +1,5 @@
 <?php
-  include("dbconnection.php");
+  include("include/dbconnection.php");
   $id=$_GET['id'];
   $query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE emp_id LIKE '$id'";
   $query_run=mysqli_query($connect,$query);
@@ -8,28 +8,11 @@
 <html>
 <head>
   <?php 
-   include("head.php");
+   include("include/head.php");
    ?>
 </head>
 <body >
- <header class="main-header">
- <div class="header-top">
- <div class="container-fluid">
-          <div class="col-sm-4 col-xs-4" id="top-lefts">         	
-            	<a href="#"><i class="fa fa-phone" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp (+977) 1234567896</a>
-          </div>
-          <div class="col-sm-4 col-xs-4" id="top-lefts"> 
-                <a href="#"><i class="fa fa-envelope" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp codemandu@domain.com</a>
-          </div>
-          <div class="col-sm-4 col-xs-4 pull-right" id="top-right">
-            			      <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-google-plus">&nbsp &nbsp</span></a>
-                        <a href="#"><span class="fa fa-twitter">&nbsp &nbsp</span></a>
-                       
-                       </div>
- </div>
- </div>
-</header>
+ <?php include('include/header.php'); ?>
 
 <!--main navigation part with logo-->
 
@@ -37,33 +20,22 @@
 <div class="container-fluid mybanner">
 <div class="bg-color">
 <?php
-include("navig.php");
+include("include/navig.php");
 if(mysqli_num_rows($query_run)==NULL)
  echo '<h4 style="margin-left:4%">No result found</h4>';
 else{
   $row=mysqli_fetch_assoc($query_run);
 ?>
-       <div class="container">
-         <div class="row">
-           <div class="col-md-3">Name</div>
-           <div class="col-md-9"><?php echo $row['name']; ?></div>
-         </div>
-         <div class="row">
-           <div class="col-md-3">Field</div>
-           <div class="col-md-9"><?php echo $row['field']; ?></div>
-         </div>
-         <div class="row">
-           <div class="col-md-3">DOB</div>
-           <div class="col-md-9"><?php echo $row['dob']; ?></div>
-         </div>
-         <div class="row">
-           <div class="col-md-3">History</div>
-           <div class="col-md-9"><?php echo $row['history']; ?></div>
-         </div>
-         <div class="row">
-           <div class="col-md-3">Email</div>
-           <div class="col-md-9"><?php echo $row['email']; ?></div>
-         </div>
+       <div class="container well" style="width: 50%">
+         <table class="table" >
+           <tr><th>Profile</th></tr>
+           <tr><td class="row"><b>Name: </b><?php echo $row['name'];?></td></tr>
+           <tr><td class="row"><b>Field: </b><?php echo $row['field'];?></td></tr>
+           <tr><td class="row"><b>Dob: </b><?php echo $row['dob'];?></td></tr>
+           <tr><td class="row"><b>History: </b><?php echo $row['history'];?></td></tr>
+           <tr><td class="row"><b>Email: </b><?php echo $row['email'];?></td></tr>
+         </table>
+         <a class="btn btn-default" href="appointment.php?doc_id=<?php echo $id;?>">Make appointment</a>
        </div>  
        <?php 
      }
@@ -78,7 +50,7 @@ else{
 
 <!--news part-->
 <?php
-include("news-headlines.php");
+include("include/news-headlines.php");
 ?>
 
  

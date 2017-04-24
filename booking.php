@@ -1,37 +1,20 @@
 <!--page for booking appointment-->
 <?php
-include("dbconnection.php");	
+include("include/dbconnection.php");	
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <?php 
-   include("head.php");
+   include("include/head.php");
    ?>
 </head>
 <body>
- <header class="main-header">
- <div class="header-top">
- <div class="container-fluid">
-          <div class="col-sm-4 col-xs-4" id="top-lefts">         	
-            	<a href="#"><i class="fa fa-phone" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp (+977) 1234567896</a>
-          </div>
-          <div class="col-sm-4 col-xs-4" id="top-lefts"> 
-                <a href="#"><i class="fa fa-envelope" aria-hidden="true" style="color:#42b3e5;"></i>&nbsp codemandu@domain.com</a>
-          </div>
-          <div class="col-sm-4 col-xs-4 pull-right" id="top-right">
-            			      <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-google-plus">&nbsp &nbsp</span></a>
-                        <a href="#"><span class="fa fa-twitter">&nbsp &nbsp</span></a>
-                       
-                       </div>
- </div>
- </div>
-</header>
+ <?php include('include/header.php'); ?>
 <div class="container-fluid mybanner">
 <div class="bg-color">
-  <?php include('navig.php');?>
+  <?php include('include/navig.php');?>
                 
  <div class="container banner-content " >
 	 <h1 id="welcome-text"><center style="margin-top:100px; margin-bottom:25px;">Find And Book Appointments</center></h1> </br>
@@ -75,18 +58,22 @@ include("dbconnection.php");
 		</form>
 		</div>
 		<?php
-			if(isset($_GET['submit'])){
+			if(isset($_GET['submit'])||isset($_GET['field'])){
 				$field=$_GET['field'];
 				if($field=="all")
 					$field="%";
+				if(isset($_GET['key'])){
 				$key=$_GET['key'];
 				if (empty($key))
 					$key="%";
 				$key='%'.$key.'%';
+				}
+				else
+					$key='%';
 				$query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key'";
 				$query_run=mysqli_query($connect,$query);
 				if(mysqli_num_rows($query_run)==NULL){
-					echo'<h4 style="margin-left:4%">No result found</h4>';
+					echo'<h4 style="margin-left:12%; margin-top:1%;">No result found</h4>';
 				}
 				else{ 
 					include("doctorlist.php");				         

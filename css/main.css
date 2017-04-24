@@ -1,12 +1,9 @@
-@media only screen and (max-width: 500px ) {
-    #logo {
-        width: 210px;
-       }
 
-     #logo-button{
-     	float: left;
-     	color: red;
-     }   
+
+@media only screen and (max-width: 768px) {
+    #logo {
+        width: 220px;
+       }
     #top-lefts{
         display: none;
     } 
@@ -14,8 +11,8 @@
         font-size: 36px;
     }
     #choice-mob{
-    background-color: #00102a;
-    width: 142px;
+    background-color: #0b3c5d;
+    width: 140px;
     margin: 25px 8.5px 26px 8.5px;
     border-radius: 8px;
     }
@@ -28,10 +25,39 @@
        font-weight: bold;
        padding: 8px;
     }
+
+    #icon-mob{
+      height: 85px;
+      top: -47px;
+      width: 84px;
+    }
+    #pic-mob{
+       position:center;
+       height: 59px;
+       width: 59px;
+     }
 }
 
+@media only screen and (max-width: 330px ) {
+   #choice-mob{
+    background-color: #0b3c5d;
+    width: 128px;
+    margin: 25px 8.5px 26px 8.5px;
+    border-radius: 8px;
+    }
+
+    #choice-mob>button{
+        width: 92px;
+       margin: 10px 4px 10px 4px;
+       position: center;
+       font-size: 9px;
+       font-weight: ;
+       padding: 8px;
+    }
+  }
+
 .header-top{
-	background-color: #00102a;
+	background-color: #0b3c5d;
 
 }
 
@@ -51,13 +77,11 @@ font-size: 12px;
 
 .main-nav{
     border:none;
-	border-radius: 0px;
 	
 	font-size: 17px;
 	
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 0px;
-    color: red;
     padding: 4px;
 background-color: rgba(250 ,250, 255, 0.2);
 
@@ -72,7 +96,7 @@ background-color: rgba(250 ,250, 255, 0.2);
 .brand-text{
 font-size: 30px;
 font-weight: bold;
-color:#00102a; 
+color:#0b3c5d; 
 }
 
 .mybanner{
@@ -84,12 +108,12 @@ background-position: center;
 
 }
 .bg-color{
-    background-color: RGBA(250 ,250, 255, 0.1);
+    background-color: RGBA(109 ,189, 214, 0.1);
     min-height: 650px;
 }
 
 .banner-content >h1{
-   color: #00102a;
+   color: #0b3c5d;
    font-weight:500;
    font-size: 60px;
  font-family: "Times New Roman", Times, serif;
@@ -98,28 +122,27 @@ position: center;
 .banner-choices{
 	
 margin-top:28px;
-margin-bottom: 90px;
 }
 
 .choices1{
-background-color: #00102a;
-;
-width: 178px;
-margin: 25px 8.5px 26px 8.5px;
-border-radius: 8px;
+background-color:#0b3c5d;
+position:relative;
+width: 188px;
+margin: 25px 40px 26px 54px;
+border-radius: 1px 25px 1px 25px;
 }
 
 .choices1>button{
-    width: 140px;
-   margin: 10px 4px 10px 4px;
+    width: 150px;
+   margin: 16px 4px 20px 4px;
    position: center;
 
 }
 
  .icon-pic {
     position:center;
- height: 62px;
- width: 62px;
+ height: 68px;
+ width: 68px;
     left: 0;
     margin: auto;
     padding: 5px;
@@ -134,15 +157,15 @@ border-radius: 8px;
     border: 5px solid #c0b0ed;
    
     border-radius: 100%;
-    height: 84px;
+    height: 91px;
     left: 0;
     margin: auto;
     padding: 5px;
     position: absolute;
     right: 0;
     text-align: center;
-    top: -47px;
-    width: 84px;
+    top: -54px;
+    width: 91px;
 }
 
 /*booking page class starts*/
@@ -155,7 +178,6 @@ background-position: center;
     background-position-x: 40%;
     background-position-y: 50%;
     min-height: 570px;
-
 }
 
 .select {
