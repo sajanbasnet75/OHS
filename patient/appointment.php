@@ -43,7 +43,7 @@ include("navig.php");
               <?php echo $error;?>
             </div><?php
             } ?>
-      <form action="#" method="GET">
+      <form action="#" method="GET" style="margin-top:100px;">
         Date:<input type="date" name="date" required="">
         <input type="submit" name="submit" value="Search">
       </form>

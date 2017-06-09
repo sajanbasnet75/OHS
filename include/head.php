@@ -1,6 +1,8 @@
+ 
  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" href="/images/logo.png" type="image/png">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet"  href="css/font-awesome/css/font-awesome.min.css">
@@ -10,7 +12,7 @@
    <script src="jquery/jquery.js"></script>
  <script src="jquery/nav-shrink.js"></script>
  <script src="jquery/ajax-jquery.js"></script>
-  <script src="jquery/ajaxloade.js"></script>
+  <script src="jquery/news.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
   <script src="bootstrap/js/bootstrap-datepicker.js"></script>
 

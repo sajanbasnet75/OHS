@@ -39,7 +39,7 @@ include("navig.php");
 
            <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
                      <div class="icon-main" id="icon-mob"><img src="../images/video.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
-                       <button type="button" class="btn btn-primary" >Video Consult</button>
+                       <button type="button" class="btn btn-primary" >News and Videos</button>
                     
            </div></a>
 
@@ -58,8 +58,13 @@ include("navig.php");
 
 <!--news part-->
 <?php
-include("../include/news-headlines.php");
+include("news-headlines.php");
 ?>
+<div class="container-fluid" style="background:#f0f0f0;">
+<?php
+include("ourdoctors.php");
+?>
+</div>
 
  
 </body>

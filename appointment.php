@@ -22,6 +22,7 @@ include("include/dbconnection.php");
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
   <?php 
    include("include/head.php");
    ?>

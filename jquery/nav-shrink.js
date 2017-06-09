@@ -25,7 +25,7 @@ $(this).css('background-color', '');
 }
 else{
 
-   $('.main-nav').addClass('navbar-fixed-top').css('background-color', 'rgba(255, 255, 255, 0.9)');
+   $('.main-nav').addClass('navbar-fixed-top').css('background-color', 'rgba(204, 218, 225, 0.9)');
    $('.main-header').hide();
 
    }

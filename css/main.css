@@ -1,4 +1,12 @@
+body{
 
+}
+a{
+  text-decoration: none;
+}
+div{
+  display: block;
+}
 
 @media only screen and (max-width: 768px) {
     #logo {
@@ -11,11 +19,11 @@
         font-size: 36px;
     }
     #choice-mob{
-    background-color: #0b3c5d;
+    background-color: #0b3c5d 0.1;
     width: 140px;
     margin: 25px 8.5px 26px 8.5px;
     border-radius: 8px;
-    }
+    } 
 
     #choice-mob>button{
         width: 104px;
@@ -36,6 +44,27 @@
        height: 59px;
        width: 59px;
      }
+    #navigbars{
+      height:40px;
+    } 
+      #newsparag{
+      font-size:15px;
+      font-family: Arial Narrow, sans-serif;
+   margin: 4px auto 23px auto;
+   
+   }
+  #news-box-contents{
+     /*for news headline*/
+     height: auto;
+  }
+  #newsheadline_imagebox{
+    height:auto;
+  }
+  #news-par{display:none;}
+  #news_headerr{
+    font-size: 35px;
+  }
+  #news-body{border:none;}
 }
 
 @media only screen and (max-width: 330px ) {
@@ -74,6 +103,9 @@ font-size: 12px;
  margin:5px 0px 5px 0px; 
 
 }
+.navigbars{
+  height:120px;
+}
 
 .main-nav{
     border:none;
@@ -110,6 +142,7 @@ background-position: center;
 .bg-color{
     background-color: RGBA(109 ,189, 214, 0.1);
     min-height: 650px;
+
 }
 
 .banner-content >h1{
@@ -153,7 +186,7 @@ border-radius: 1px 25px 1px 25px;
     
 }
 .icon-main {
-    background:#ffffff none repeat scroll 0 0;
+    background:#fff none repeat scroll 0 0;
     border: 5px solid #c0b0ed;
    
     border-radius: 100%;

@@ -1,3 +1,4 @@
+<div style="height:120px;">
 <nav class="navbar navbar-default  main-nav" role="navigation" >
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,7 +24,7 @@
                                 <li class="divider"></li>
                                 <li><a href="">Find a Doctor</a></li>
                                 <li class="divider"></li>
-                                <li><a href="">Video tutorials</a></li>
+                                <li><a href="">News and Videos</a></li>
                             </ul>
                         </li>
                         <li><a href="#" style="color:#00102a;">Contact Us</a></li>
@@ -40,4 +41,4 @@
                 </div><!-- navbar collapse end -->
             </div><!-- container-fluid end -->
 </nav>
-        
+</div>        

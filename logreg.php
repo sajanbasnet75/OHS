@@ -61,7 +61,7 @@
        $run=mysqli_query($connect,$query);*/
         require 'mail/PHPMailerAutoload.php';
         $mail = new PHPMailer;
-        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->isSMTP();                                     
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'projectohs5@gmail.com';                 // SMTP username
