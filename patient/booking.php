@@ -59,10 +59,10 @@ include("../include/dbconnection.php");
 		</div>
 		<?php
 			if(isset($_GET['submit'])){
-				$field=$_GET['field'];
+				$field=mysqli_real_escape_string($connect,$_GET['field']);
 				if($field=="all")
 					$field="%";
-				$key=$_GET['key'];
+				$key=mysqli_real_escape_string($connect,$_GET['key']);
 				if (empty($key))
 					$key="%";
 				$key='%'.$key.'%';

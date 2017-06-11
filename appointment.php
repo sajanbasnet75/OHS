@@ -1,6 +1,12 @@
 <?php
 include("include/dbconnection.php");
   if(!isset($_SESSION['id'])){
+    $_SESSION['requestURL']=$_SERVER['REQUEST_URI'];
+    $h=$_SESSION['requestURL'];
+    $a=explode('/', $h);
+    $_SESSION['requestURL0']=$a[0];
+    $_SESSION['requestURL1']=$a[1];
+    $_SESSION['requestURL2']=$a[2];
     $_SESSION['error']='You have to log in before you make your appointment.';
     header('Location:logreg.php');
   }

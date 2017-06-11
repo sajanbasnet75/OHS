@@ -5,8 +5,8 @@
     unset($_SESSION['email']);
   }
   if(isset($_POST['login-submit'])&&isset($_POST['username'])&&isset($_POST['password'])){
-    $uname=$_POST['username'];
-    $pass=$_POST['password'];
+    $uname=mysqli_real_escape_string($connect,$_POST['username']);
+    $pass=mysqli_real_escape_string($connect,$_POST['password']);
     $pass=md5($pass);
     $query="select * from users where username like '$uname' and password like '$pass'";
     if($query_run=mysqli_query($connect,$query)){
@@ -35,21 +35,22 @@
         }
         // log in sucessful
         $_SESSION['id']=$row['user_id'];
+        $_SESSION['username']=$row['username'];
         $loc=$row['position'];
-        header('Location:'.$loc);
+        header('Location:'.$loc.'/'.$_SESSION['requestURL2']);
       }
     }
   }
   if(isset($_POST['register-submit'])){
-     $name=$_POST['name'];
-     $email=$_POST['email'];
-     $num=$_POST['num'];
-     $username=$_POST['username'];
-     $pass=$_POST['password'];
+     $name=mysqli_real_escape_string($connect,$_POST['name']);
+     $email=mysqli_real_escape_string($connect,$_POST['email']);
+     $num=mysqli_real_escape_string($connect,$_POST['num']);
+     $username=mysqli_real_escape_string($connect,$_POST['username']);
+     $pass=mysqli_real_escape_string($connect,$_POST['password']);
      $pass=md5($pass);
-     $sex=$_POST['sex'];
-     $dob=$_POST['dob'];
-     $address=$_POST['address'];
+     $sex=mysqli_real_escape_string($connect,$_POST['sex']);
+     $dob=mysqli_real_escape_string($connect,$_POST['dob']);
+     $address=mysqli_real_escape_string($connect,$_POST['address']);
      $query="select * from users where username like '$username'";
      $run=mysqli_query($connect,$query);
      $query="select * from unverified where username like '$username'";
@@ -164,7 +165,7 @@ include("include/navig.php");
               <div class="col-lg-12">
                 <form id="login-form" action="#" method="post" role="form" style="display:<?php if(!isset($rerror)) echo 'block'; else echo 'none'; ?>;">
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required="">
+                    <input type="text" name="username" id="useloginrname" tabindex="1" class="form-control" placeholder="Username" value="" required="">
                   </div>
                   <div class="form-group">
                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required="">
@@ -262,10 +263,7 @@ include("include/navig.php");
        </div>     
     </div>
  
-<!--news part-->
-<?php
-include("include/news-headlines.php");
-?>
+
 
  
 </body>

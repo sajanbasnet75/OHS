@@ -1,6 +1,7 @@
 <?php
 include("include/dbconnection.php");
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +33,8 @@ include("include/navig.php");
 <div class="container news-block">
 <?php  
         if(isset($_GET['id'])){
-          $id=$_GET['id'];
-          $query="select * from news where news_id = $id";
+          $news_id=$_GET['id'];
+          $query="select * from news where news_id = $news_id";
           $query_run=mysqli_query($connect,$query);
           $row=mysqli_fetch_assoc($query_run);
         }
@@ -54,7 +55,7 @@ include("include/navig.php");
     <?php 
     echo '<span class="fa fa-calendar-o ">&nbsp</span>';
     echo $row['date'];
-    echo " / ";
+    echo "  &nbsp &nbsp";
     echo '<span class="fa fa-user ">&nbsp</span>';
     echo $row['author']; 
     ?>
@@ -68,7 +69,53 @@ include("include/navig.php");
           <p  style=" font-family: 'Tangerine', serif;
         font-size: 22px;"><?php echo $row['detail'];?></p>
     </div>
+     <div class="" style="background:#f6feff; padding:15px;">
+     <h4 class="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
+     <div style="border-bottom:solid 1px grey;">
+            <?php 
+          $news_ids=$_GET['id'];
+          $query="SELECT * from news_comments WHERE news_id=$news_ids order by date DESC limit 20";
+          $query_run=mysqli_query($connect,$query);
+            while($row=mysqli_fetch_assoc($query_run)){;
+        ?>
+      <div class="row" style="padding:15px;">
+        <div style="margin:1px 0px 1px 0px;">
+        <div class="col-md-2 col-sm-12 col-xs-12 text-capitalize text-info " style="font-size:15px"><?php echo $row['name'];?></div>
+        <div class="col-md-10 col-sm-12 col-xs-12 text-gray-dark" style="">
+        <?php echo $row['comments']; ?>
+             <div class="text-muted">
+        <?php 
+               echo $row['date'];
+             ?>
+        </div>
+      </div>
+      </div>
+      </div> 
+  <?php } ?>
+  </div>
+  
+       <?php
+        if(!isset($_SESSION['id'])){
+        $_SESSION['requestURL']=$_SERVER['REQUEST_URI'];
+        $h=$_SESSION['requestURL'];
+        $a=explode('/', $h);
+        $_SESSION['requestURL0']=$a[0];
+        $_SESSION['requestURL1']=$a[1];
+        $_SESSION['requestURL2']=$a[2];
 
+      echo "
+               <a href='logreg.php' class='btn btn-info' style='margin:8px;'> Login to Comment</a> ";  
+          }
+      else{
+                 echo '<form action="" method="POST" accept-charset="utf-8">
+                   <textarea name="written_comments"placeholder="Write Comments" style="resize:none;width:100%; margin:10px 2px 5px 2px;"></textarea>   
+                     <input type="submit" name="submit_comments" value="POST" class="pull-right btn btn-info">
+                     </form>';  
+      }                    
+                   
+       ?>
+
+  </div>  
 </div>
   
   <div class="col-sm-4 col-lg-4 col-md-4 col-xs-12 more-news" >
@@ -76,7 +123,7 @@ include("include/navig.php");
     
     <?php  
        $more_head=6;
-     $query1="select * from news where news_id != $id order by date DESC limit $more_head";
+     $query1="select * from news where news_id != $news_id order by date DESC limit $more_head";
           $query_run1=mysqli_query($connect,$query1);
           while($row=mysqli_fetch_array($query_run1)){
      ?>

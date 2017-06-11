@@ -1,4 +1,11 @@
 $(document).ready(function(){
+/*for ask a  question */
+$('.include_symptom').hide();
+$('.symptom_button').on('click', function(event) {
+$(this).slideUp('slow');
+$('.include_symptom').slideDown('slow');
+}); /*end*/
+
 /*popup*/
 if($(window).width()>500){
    $('.main-nav').data('size','big');
@@ -29,6 +36,7 @@ else{
    $('.main-header').hide();
 
    }
+
 });
 
 

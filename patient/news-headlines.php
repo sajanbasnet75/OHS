@@ -44,7 +44,7 @@
     <?php 
     echo '<span class="fa fa-calendar-o ">&nbsp</span>';
     echo $row['date'];
-    echo " / ";
+    echo " &nbsp&nbsp";
     echo '<span class="fa fa-user ">&nbsp</span>';
     echo $row['author']; 
     ?>

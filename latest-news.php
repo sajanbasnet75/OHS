@@ -17,20 +17,7 @@ padding:10px;
 .more-news{
 padding:13px;
 } 
-</style>
-</head>
-<body >
- <?php include('include/header.php'); ?>
-<!--main navigation part with logo-->
- <!--contaiener of services options-->
-<div class="bg-color">
-<?php
-include("include/navig.php");
-?>
-
- <!--news main part-->
- <style type="text/css" media="screen">
-   body{
+body{
     background-color: #f1f1f1;
    }
    .headline{
@@ -50,8 +37,16 @@ include("include/navig.php");
       }
       .news-box-content{background:#f0f0f0; height:500px; padding:2px 2px 10px 1px;
     }
- </style>
-  
+</style>
+</head>
+<body >
+ <?php include('include/header.php'); ?>
+<!--main navigation part with logo-->
+ <!--contaiener of services options-->
+<div class="bg-color">
+<?php
+include("include/navig.php");
+?> 
 <h1 class="news-headline text-center headline" ><span style="border-bottom:ridge 1px grey;">LATEST NEWS</span></h1>
 <p class="text-center newsp" id="newsparag">Read our latest news from the company or general medical news.Feel free to ask questions in <br>comments for any news you find interesting.
 

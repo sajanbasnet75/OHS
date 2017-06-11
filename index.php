@@ -39,9 +39,9 @@ include("include/navig.php");
            </div></a>
 
            
-             <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
-                <div class="icon-main" id="icon-mob"><img src="images/payment.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
-                  <button type="button" class="btn btn-primary" >Pay Online</button>
+             <a href="ask-a-question.php"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
+                <div class="icon-main" id="icon-mob"><img src="images/ask.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
+                  <button type="button" class="btn btn-primary" >Ask Questions</button>
             </div></a>
        </div>     
     </div>

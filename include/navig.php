@@ -30,7 +30,7 @@
                         <li><a href="#" style="color:#00102a;">Contact Us</a></li>
                          <?php 
                          if(isset($_SESSION['id'])){
-                         echo'<li><a href="../logout.php" class="btn-danger" style="color:#fff; font-size:16lopx;">LogOut
+                         echo'<li><a href="logout.php" class="btn-danger" style="color:#fff; font-size:16lopx;">LogOut
                          </a></li>';}
                          else{
                             echo'<li><a href="logreg.php" class="btn-info" style="color:#fff;font-size:16px;">LogIn
