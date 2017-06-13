@@ -139,7 +139,7 @@ include("navig.php");
     }
     
       else{
-            echo '<span class="text-center text-danger">';
+            echo '<span class="text-center text-danger ans_parag">';
           echo "No Answers!" ;
           echo '</span>';
       
