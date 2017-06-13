@@ -33,7 +33,6 @@ body{
    .questions{
    	padding: 12px;
    	margin:12px;
-   	border-bottom: solid 1px black;
 
    }
    .ques_parag{
@@ -81,14 +80,24 @@ include("include/navig.php");
    </div>
    <hr>
 <div class="" style="border:solid 1px grey; border-radius:15px 0px 15px 0px; background:#fefefe">
-	<h3 class="text-center text-muted">Some Asked Questions</h3>
+	<h3 class="text-center text-muted" style="">Some Asked Questions</h3>
 	<hr>
      <div class="questions">
-	     <h3 class="ques_head">Why does my Cheast pains a lot?</h3>
-	      <p class="ques_parag">I am a male 22 years old and suffering from chest pain a while ago.when i go to toilet i cant shit because of my cheast pain. so please provide me a solution and advice what to do?</p>
-	      <div class="text-right text-danger ques_parag"><span class="fa fa-user">&nbsp</span>Male,22 years</div>
-	      <div class="text-right text-warning ques_parag"><span class="fa fa-calendar-o ">&nbsp</span>2017 jun 10</div>
-	      <a href="#" class="btn btn-success text-left">VIEW</a>
+     <?php
+ $query2="SELECT * FROM asked_questions ORDER BY date  and ques_id ASC  ";
+ $query_run2=mysqli_query($connect,$query2);
+ while ($rowa=mysqli_fetch_assoc($query_run2)){
+  $ques_id=$rowa['ques_id'];
+	     echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
+	      <p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
+	      <div class="ques_head text-right">       
+        <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
+        <span class="text-warning fa fa-calendar-o ">&nbsp'; echo $rowa['date']; echo '</span>
+        </div>
+        <a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
+        echo '<hr>';     
+      };
+      ?> 
      </div>
      
 </div>

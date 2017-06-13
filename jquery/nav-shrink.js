@@ -6,6 +6,13 @@ $(this).slideUp('slow');
 $('.include_symptom').slideDown('slow');
 }); /*end*/
 
+/*for answering a  question */
+$('.provide_box').hide();
+$('.answer_button').on('click', function(event) {
+$(this).slideUp('slow');
+$('.provide_box').slideDown('slow');
+}); /*end*/
+
 /*popup*/
 if($(window).width()>500){
    $('.main-nav').data('size','big');

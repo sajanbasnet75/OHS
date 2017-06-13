@@ -14,8 +14,7 @@ if(isset($_POST['submit_questions'])){
   $ques_details= mysqli_real_escape_string($connect,$_POST['ques_details']);
   $symptoms= mysqli_real_escape_string($connect,$_POST['symptoms']);
   $dates= date('Y M d');
-    $time=date("h:i:sa");
-    $dateandtime= mysqli_real_escape_string($connect,$dates.' at '.$time);
+    $dateandtime= mysqli_real_escape_string($connect,$dates);
     $speciality= mysqli_real_escape_string($connect,$_POST['field']);
     $query="INSERT INTO asked_questions(user_id,ques_topic,ques_details,symptoms,field,sex,date,age) VALUES('$user_id','$ques_topic','$ques_details','$symptoms','$speciality','$user_sex','$dateandtime','$user_age')";
     $t=mysqli_query($connect,$query);
@@ -53,7 +52,6 @@ body{
    .questions{
    	padding: 12px;
    	margin:12px;
-   	border-bottom: solid 1px black;
 
    }
    .ques_parag{
@@ -65,7 +63,9 @@ body{
    	border-bottom: solid 1px black;
 	
    }
-   
+   .textareas{
+    resize:none;width:100%;height:150px;padding:10px; margin:10px 0px 10px 0px;
+   }
 </style>
 </head>
 <body >
@@ -104,9 +104,9 @@ include("navig.php");
       else{
          echo '<form action="" method="POST" accept-charset="utf-8" >
          
-         <input type="text" name="ques_topic" value="" required placeholder="Write the topic of your question" class="form-text text-capitalize" style="width:100%;height:40px; padding:10px;margin:8px 0px 8px 0px">
+         <input type="text" name="ques_topic" value="" required placeholder="Write the topic of your question" class="form-text textareas" style="height:40px; ">
          
-         <textarea name="ques_details" required placeholder="Ask your question here." style="resize:none;width:100%;height:150px;padding:10px; margin:10px 0px 10px 0px;"></textarea> 	
+         <textarea name="ques_details" required placeholder="Ask your question here." minlength="80px"  class="textareas"></textarea> 	
          
          <a class="symptom_button btn btn-success btn-block" style="margin:0px 0px 14px 0px;">Want to include some symptoms?</a>        
          <div class="include_symptom">
@@ -140,15 +140,26 @@ include("navig.php");
        ?>
    </div>
    <hr>
-<div class="" style="border:solid 1px grey; border-radius:15px 0px 15px 0px; background:#fefefe">
-	<h3 class="text-center text-muted" style="text-decoration:underline;">Some Asked Questions</h3>
+<div class="" style="border:solid 1px #dddddd; border-radius:15px 0px 15px 0px; background:#fefefe">
+	<h3 class="text-center text-muted" >Some Asked Questions</h3><hr>
      <div class="questions">
-	     <h3 class="ques_head">Why does my Cheast pains a lot?</h3>
-	      <p class="ques_parag">I am a male 22 years old and suffering from chest pain a while ago.when i go to toilet i cant shit because of my cheast pain. so please provide me a solution and advice what to do?</p>
-	      <div class="text-right text-danger ques_parag"><span class="fa fa-user">&nbsp</span>Male,22 years</div>
-	      <div class="text-right text-warning ques_parag"><span class="fa fa-calendar-o ">&nbsp</span>2017 jun 10</div>
-	      <a href="#" class="btn btn-success text-left">VIEW</a>
-     </div>
+	       <?php
+ $query2="SELECT * FROM asked_questions ORDER BY date  and ques_id ASC ";
+ $query_run2=mysqli_query($connect,$query2);
+ while ($rowa=mysqli_fetch_assoc($query_run2)){
+  $ques_id=$rowa['ques_id'];
+       echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
+        <p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
+        <div class="ques_head text-right">       
+        <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
+        <span class="text-warning fa fa-calendar-o ">&nbsp'; echo $rowa['date']; echo '</span>
+        </div>
+        <a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
+        echo '<hr>';     
+      };
+      ?> 
+     
+ </div>
      
 </div>
 </div>
