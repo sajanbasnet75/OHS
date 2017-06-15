@@ -1,25 +1,5 @@
 <?php
 include("../include/dbconnection.php");
-//to select the doctor foeld
-$ques_id=$_GET['ques_id'];
-$empid=$_SESSION['id'];
-$queryd="SELECT * FROM employee_detail where emp_id=$empid";
-$run_query=mysqli_query($connect,$queryd);
-while($row=mysqli_fetch_assoc($run_query)){
-
-$field=$row['field'];
-
-}
-//to insert into answers database
-if(isset($_POST['submit_answers'])){
-  $quesid=$_GET['ques_id'];
-  $empid=$_SESSION['id'];
- date_default_timezone_set("Asia/Kathmandu");
- $answers= mysqli_real_escape_string($connect,$_POST['answer_given']);
- $dates= date('Y M d');
- $querya="INSERT INTO questions_answers(ques_id,emp_id,answer,date) VALUES('$quesid','$empid','$answers','$dates')";
- $do=mysqli_query($connect,$querya);
-}
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +40,7 @@ body{
     
    }
    .textareas{
-    resize:none;width:100%;height:150px;padding:10px; margin:12px 0px 12px 0px;
+    resize:none;width:100%;height:150px;padding:10px; margin:10px 0px 10px 0px;
    }
    .doc_answer{
     border:solid 1px #dddddd;border-radius:10px; margin:10px; padding:10px;background:#e9edf7; 
@@ -97,13 +77,6 @@ include("navig.php");
                    
   ?>
 
-<?php if(isset($_POST['submit_answers']) && $do==true){
- echo '<div class="alert alert-danger alert-dismissable text-center" >
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-             <span class="text-center text-warning">Thank you! For your answer.</span>
-       </div>';
-} 
-?>
 <div class="question_box" >
  
 	<h3 class="text-center text-muted" style="">Asked Questions</h3>
@@ -111,7 +84,8 @@ include("navig.php");
             
 <div class="questions">
 <?php
-           $query2="SELECT * FROM asked_questions where field='$field' and ques_id=$ques_id";
+          $ques_id=$_GET['ques_id'];
+           $query2="SELECT * FROM asked_questions where ques_id=$ques_id";
            $query_run2=mysqli_query($connect,$query2);
            while ($rowa=mysqli_fetch_assoc($query_run2)){
     	     echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
@@ -131,24 +105,9 @@ include("navig.php");
 <div class="answer-box" style="">
    <h3 class="text-center text-muted" style="">Doctors Answers</h3>
    <hr>
-
-      <div class="answers">
-            <form action="" method="POST" accept-charset="utf-8">
-               <a class="btn btn-success btn-block answer_button">Provide Answers</a>        
-               <div class="provide_box">
-               <textarea  placeholder="Provide your answer here." class="textareas" name="answer_given"></textarea>
-               <input type="submit"  value="Post" name="submit_answers" class="btn btn-info btn-block">
-               </div>
-            </form>
-      </div>
-      <hr>
+     
     <?php 
-  
-    $queryans="SELECT * FROM questions_answers join employee_detail 
-    where ques_id=$ques_id 
-    AND questions_answers.emp_id=employee_detail.emp_id
-    order by ans_id DESC";
-
+    $queryans="SELECT * FROM questions_answers WHERE ques_id=$ques_id ORDER BY ans_id DESC";
     $run_queryans=mysqli_query($connect,$queryans);
     if(mysqli_num_rows($run_queryans)>0){
     while($rowans=mysqli_fetch_assoc($run_queryans)){
@@ -159,7 +118,7 @@ include("navig.php");
         <div class="row">
             <div style="width:100px;height:120px;"class="col-sm-6 col-md-6 col-xs-6">';
                    echo '<img src="../images/doc_images/';
-                   echo $rowans['images'];
+                   echo $rowans['doc_image'];
                    echo ' " class=" img-circle img-responsive">';
             echo '</div>';
             echo'
@@ -177,15 +136,16 @@ include("navig.php");
         </p>
        </div>';
         echo '</div>'; 
-        }
       }
+    }
+    
       else{
             echo '<span class="text-center text-danger ans_parag">';
           echo "No Answers!" ;
           echo '</span>';
       
       }
-      
+        
     ?>
 </div>
 </div>

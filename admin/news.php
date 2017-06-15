@@ -1,20 +1,6 @@
 <?php
 include("../include/dbconnection.php");
-date_default_timezone_set("Asia/Kathmandu");
-if(isset($_POST['submit_comments'])){
-  $comment=mysqli_real_escape_string($connect,$_POST['written_comments']);
-  $id=$_SESSION['id'];
-  $name=$_SESSION['username'];
-  $news_idd=$_GET['id'];
-  $dates= date('Y M d');
-    $time=date("h:i:sa");
-    $dateandtime=$dates.' at '.$time;
-    $query="INSERT INTO news_comments (news_id,user_id,comments,date) VALUES('$news_idd','$id','$comment','$dateandtime')";
-    mysqli_query($connect,$query) or die(mysql_error());
-
-}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +52,7 @@ include("navig.php");
     <?php 
     echo '<span class="fa fa-calendar-o ">&nbsp</span>';
     echo $row['date'];
-    echo " &nbsp &nbsp";
+    echo " / ";
     echo '<span class="fa fa-user ">&nbsp</span>';
     echo $row['author']; 
     ?>
@@ -80,46 +66,7 @@ include("navig.php");
           <p  style=" font-family: 'Tangerine', serif;
         font-size: 22px;"><?php echo $row['detail'];?></p>
     </div>
-     <div class="" style="background:#f6feff; padding:15px;">
-     <h4 class="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
-     <div style="border-bottom:solid 1px grey;">
-            <?php 
-           $news_ids=$_GET['id'];
-          $query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_comments.user_id=users.user_id order by date DESC limit 20";
-          $query_run=mysqli_query($connect,$query);
-            while($rown=mysqli_fetch_assoc($query_run)){;
-        ?>
-      <div class="row" style="padding:15px;">
-        <div style="margin:1px 0px 1px 0px;">
-        <div class="col-md-2 col-sm-12 col-xs-12 text-capitalize text-info " style="font-size:15px"><?php echo $rown['username'];?></div>
-        <div class="col-md-10 col-sm-12 col-xs-12 text-gray-dark" style="">
-        <?php echo $rown['comments']; ?>
-             <div class="text-muted">
-        <?php 
-               echo $rown['date'];
-             ?>
-        </div>
-      </div>
-      </div>
-      </div> 
-  <?php } ?>
-  </div>
-  
-       <?php
-            if(!isset($_SESSION['id'])){
-      echo "
-               <a href='logreg.php' class='btn btn-info' style='margin:8px;'> Login to Comment</a> ";  
-          }
-      else{
-                 echo '<form action="" method="POST" accept-charset="utf-8">
-                   <textarea name="written_comments"placeholder="Write Comments" style="resize:none;width:100%; margin:10px 2px 5px 2px;"></textarea>   
-                     <input type="submit" name="submit_comments" value="POST" class="pull-right btn btn-info">
-                     </form>';  
-      }                    
-                   
-       ?>
 
-  </div>
 </div>
   
   <div class="col-sm-4 col-lg-4 col-md-4 col-xs-12 more-news" >

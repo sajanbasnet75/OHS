@@ -10,10 +10,10 @@ include("../include/dbconnection.php");
   $id=$_SESSION['doc_id'];
   }
   if(isset($_GET['time'])){
-    $pat_id=1;
+    $pat_id=$_SESSION['id'];
     $date=$_GET['date'];
     $time=$_GET['time'];
-    $query="INSERT INTO appointment (emp_id, patient_id, day, time, date,payment) VALUES ('$id','$pat_id',DAYOFWEEK('$date'),'$time','$date','NULL')";
+    $query="INSERT INTO appointment (app_id,emp_id, patient_id, time, date,payment,report) VALUES (DEFAULT,'$id','$pat_id','$time','$date','NULL' ,'NULL')";
     mysqli_query($connect,$query);
     header('Location:success.php?date='.$date.'&doc_id='.$id.'&time='.$time);
   }
@@ -23,7 +23,23 @@ include("../include/dbconnection.php");
 <head>
   <?php 
    include("head.php");
-   ?>
+   ?><script type="text/javascript" src="../jquery/reg.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/reg.css"><script>
+  $(document).ready(function(){
+    var date_input=$('input[name="date"]'); //our date input has the name "date"
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    date_input.datepicker({
+      format: 'yyyy-mm-dd',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+      orientation:"top",
+      startDate:'0',
+      endDate:'+7d',
+    })
+  })
+</script>
+   <title>Doctor Schdedule</title>
 </head>
 <body >
  <?php include('../include/header.php'); ?>
@@ -43,28 +59,30 @@ include("navig.php");
               <?php echo $error;?>
             </div><?php
             } ?>
-      <form action="#" method="GET" style="margin-top:100px;">
-        Date:<input type="date" name="date" required="">
+      <div class="container well" style="width: 30%;"><form action="#" method="GET">
+        Date:<input type="text" name="date" required="">
         <input type="submit" name="submit" value="Search">
-      </form>
+      </form></div>
       <?php 
         if (isset($_GET['submit'])) {
           $date=$_GET['date'];
-          $query="SELECT * FROM employee NATURAL JOIN doc_schedule where emp_id like '$id'";//day like DAYOFWEEK('$date') and
+          $query="SELECT * FROM users NATURAL JOIN doc_schedule where day like DAYOFWEEK('$date') and emp_id like '$id'";//day like DAYOFWEEK('$date') and
           $query_run=mysqli_query($connect,$query);
           $row=mysqli_fetch_assoc($query_run);
-          $data=array('8-9','9-10','10-11','11-12','12-13','13-14','14-15','15-16');
+          $data=array('8-9','9-10','10-11','11-12','12-13','13-14','14-15','15-16','16-17');
+          if(mysqli_num_rows($query_run)!=NULL)
           $time=explode('-',$row['time']);
           ?>
           <div style=" margin-top: 50px;">
           <div class="row">
         
             <?php foreach ($data as $key) {
+              if(mysqli_num_rows($query_run)!=NULL){
               $em=explode('-',$key);
               if($em[0]>=$time[0]&&$em[1]<=$time[1]){
                 $query="select * from appointment where emp_id like '$id' and time like '$key' and date like '$date'";
-                $query_run=mysqli_query($connect,$query);
-                if(mysqli_num_rows($query_run)<5){
+                $query_run1=mysqli_query($connect,$query);
+                if(mysqli_num_rows($query_run1)<5){
                   echo '<div ><a class="btn btn-success col-sm-1" href="appointment.php?date='.$date.'&doc_id='.$id.'&time='.$key.'">'.$key.'</a></div>';
                 }
                 else
@@ -72,7 +90,9 @@ include("navig.php");
               }
               else
               echo '<div class="btn btn-default col-sm-1">'.$key.'</div>';        
-            } ?>
+            } 
+            else echo '<div class="btn btn-default col-sm-1">'.$key.'</div>'; 
+            }?>
             
           </div></div>
           <div  style="margin-top:50px;">
@@ -93,7 +113,7 @@ include("navig.php");
 
 <!--news part-->
 <?php
-include("../include/news-headlines.php");
+include("news-headlines.php");
 ?>
 
  

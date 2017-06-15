@@ -1,5 +1,12 @@
-
- <!--news main part-->
+<?php
+include("include/dbconnection.php");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>OHS</title>
+   <?php include("include/head.php"); ?>
+</head>
  <style type="text/css" media="screen">
    .doc-box{
       padding: 15px 15px 15px 15px; }
@@ -7,13 +14,16 @@
     }
    </style>
 
-<h1 class="news-headline text-center headline" ><span style="border-bottom:ridge 1px grey;">OUR DOCTORS</span></h1>
-<p class="text-center newsp" id="newsparag">Get all the information about <br>our Doctors 
-
-</p>
+<body>
+ <?php include('include/header.php'); 
+ echo '<div style="background:#f0f0fb">';
+include('include/navig.php');
+ ?>
+<hr>
+<h2 class="text-center"> All Doctors</h2>
 <div class="container" >
       <?php 
-          $query="select * from employee_detail limit 4";
+          $query="select * from employee_detail";
           $query_run=mysqli_query($connect,$query);
             while($row=mysqli_fetch_assoc($query_run)){;
         ?>
@@ -46,11 +56,13 @@
     <?php echo $row['history']; ?>
     </div>
     <div style="margin:10px 2px 2px 2px; position:relative; top: 28px;">
-    <center><a href="docprofile.php?id=<?php echo $row['emp_id'];?>" class="btn btn-info ">View Profile</a><center>
+    <center><a href="docprofile.php?id=<?php echo $row['emp_id'];?>" class="btn btn-info ">View Profile</a></center>
     </div>
   </div>
 </div>
 
 <?php } ?>
 </div>
-<center><a href="alldoctors.php" style="margin:15px; margin-bottom:25px; position:relative; top:38px;" class="btn btn-primary text-center" >All Doctors</a></center>
+</div>
+</body>
+</html>	         	

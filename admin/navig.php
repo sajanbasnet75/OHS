@@ -17,13 +17,13 @@
                         <li class="active"><a href="index.php" style="color:#00102a;">Home<span class="sr-only">(current)</span></a></li>
                         <li><a href="#"  style="color:#00102a;">About Us</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  style="color:#00102a;">Our Services<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"  style="color:#00102a;">Add<span class="caret"></span></a>
                             <ul class="dropdown-menu " role="menu">
-                                <li><a href="booking.php">Book an appointment</a></li>
+                                <li><a href="adddoc.php">Add Doctors</a></li>
                                 <li class="divider"></li>
-                                <li><a href="">Find a Doctor</a></li>
+                                <li><a href="addNews.php">Add News</a></li>
                                 <li class="divider"></li>
-                                <li><a href="">Video tutorials</a></li>
+                                <li><a href="#">Add Videos</a></li>
                             </ul>
                         </li>
                         <li><a href="#" style="color:#00102a;">Contact Us</a></li>

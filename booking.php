@@ -32,7 +32,7 @@ include("include/dbconnection.php");
 						<option value="Dentist">Dentist</option>              	
 						</optgroup>
 						<optgroup label="Other Specialist"><hr>
-						<option value="Nureologist">Nureologist</option>
+						<option value="Neurologist">Neurologist</option>
 						<option value="Psychiatrist">Psychiatrist</option>
 						<option value="Pediatrician">Pediatrician</option>
 						<option value="Allergist">Allergist</option>
@@ -70,7 +70,7 @@ include("include/dbconnection.php");
 				}
 				else
 					$key='%';
-				$query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key'";
+				$query="SELECT * FROM users NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key' LIMIT 25";
 				$query_run=mysqli_query($connect,$query);
 				if(mysqli_num_rows($query_run)==NULL){
 					echo'<h4 style="margin-left:12%; margin-top:1%;">No result found</h4>';
@@ -78,7 +78,19 @@ include("include/dbconnection.php");
 				else{ 
 					include("doctorlist.php");				         
 	         	}
+	         }
+	     if(isset($_GET['spec'])){
+				$spec=$_GET['spec'];
+				$query="SELECT * FROM employee_detail WHERE field LIKE '$spec' LIMIT 25";
+				$query_run=mysqli_query($connect,$query);
+				if(mysqli_num_rows($query_run)==NULL){
+					echo'<h4 style="margin-left:4%">No result found</h4>';
+				}
+				else{ 
+					include("doctorlist.php");				         
+	         	}
 	     }
+	     
 	    ?>
 
 </div>

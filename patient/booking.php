@@ -1,7 +1,6 @@
 <!--page for booking appointment-->
 <?php
 include("../include/dbconnection.php");	
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +8,7 @@ include("../include/dbconnection.php");
   <?php 
    include("head.php");
    ?>
+    <title>Search</title>
 </head>
 <body>
 <?php include('../include/header.php'); ?>
@@ -32,7 +32,7 @@ include("../include/dbconnection.php");
 						<option value="Dentist">Dentist</option>              	
 						</optgroup>
 						<optgroup label="Other Specialist"><hr>
-						<option value="Nureologist">Nureologist</option>
+						<option value="Neurologist">Neurologist</option>
 						<option value="Psychiatrist">Psychiatrist</option>
 						<option value="Pediatrician">Pediatrician</option>
 						<option value="Allergist">Allergist</option>
@@ -58,15 +58,29 @@ include("../include/dbconnection.php");
 		</form>
 		</div>
 		<?php
-			if(isset($_GET['submit'])){
-				$field=mysqli_real_escape_string($connect,$_GET['field']);
+			if(isset($_GET['submit'])||isset($_GET['field'])){
+				$field=$_GET['field'];
 				if($field=="all")
 					$field="%";
-				$key=mysqli_real_escape_string($connect,$_GET['key']);
+				if(isset($_GET['key'])){
+				$key=$_GET['key'];
 				if (empty($key))
 					$key="%";
 				$key='%'.$key.'%';
-				$query="SELECT * FROM employee NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key'";
+				}else
+					$key='%';
+				$query="SELECT * FROM employee_detail WHERE field LIKE '$field' AND name LIKE '$key' LIMIT 25";
+				$query_run=mysqli_query($connect,$query);
+				if(mysqli_num_rows($query_run)==NULL){
+					echo'<h4 style="margin-left:4%">No result found</h4>';
+				}
+				else{ 
+					include("doctorlist.php");				         
+	         	}
+	     }
+			if(isset($_GET['spec'])){
+				$spec=$_GET['spec'];
+				$query="SELECT * FROM employee_detail WHERE field LIKE '$spec' LIMIT 25";
 				$query_run=mysqli_query($connect,$query);
 				if(mysqli_num_rows($query_run)==NULL){
 					echo'<h4 style="margin-left:4%">No result found</h4>';
@@ -80,6 +94,6 @@ include("../include/dbconnection.php");
 </div>
 </div>
 <?php  include("top_specialist.php"); 
-include("../include/news-headlines.php");?>
+?>
 </body>
 </html>

@@ -84,13 +84,13 @@ include("navig.php");
      <div style="border-bottom:solid 1px grey;">
             <?php 
            $news_ids=$_GET['id'];
-          $query="SELECT * from news_comments WHERE news_id=$news_ids order by date DESC limit 20";
+$query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_comments.user_id=users.user_id order by date DESC limit 20";
           $query_run=mysqli_query($connect,$query);
             while($rown=mysqli_fetch_assoc($query_run)){;
         ?>
       <div class="row" style="padding:15px;">
         <div style="margin:1px 0px 1px 0px;">
-        <div class="col-md-2 col-sm-12 col-xs-12 text-capitalize text-info " style="font-size:15px"><?php echo $rown['name'];?></div>
+        <div class="col-md-2 col-sm-12 col-xs-12 text-capitalize text-info " style="font-size:15px"><?php echo $rown['username'];?></div>
         <div class="col-md-10 col-sm-12 col-xs-12 text-gray-dark" style="">
         <?php echo $rown['comments']; ?>
              <div class="text-muted">

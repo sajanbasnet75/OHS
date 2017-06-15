@@ -1,6 +1,7 @@
 <?php
 include("include/dbconnection.php");
   if(!isset($_SESSION['id'])){
+   if(!isset($_SESSION['id'])){
     $_SESSION['requestURL']=$_SERVER['REQUEST_URI'];
     $h=$_SESSION['requestURL'];
     $a=explode('/', $h);
@@ -10,6 +11,7 @@ include("include/dbconnection.php");
     $_SESSION['error']='You have to log in before you make your appointment.';
     header('Location:logreg.php');
   }
+  }
   if(isset($_GET['doc_id'])){
   $_SESSION['doc_id']=$_GET['doc_id'];
   }
@@ -17,10 +19,9 @@ include("include/dbconnection.php");
   $id=$_SESSION['doc_id'];
   }
   if(isset($_GET['time'])){
-    $pat_id=1;
     $date=$_GET['date'];
     $time=$_GET['time'];
-    $query="INSERT INTO appointment (emp_id, patient_id, day, time, date,payment) VALUES ('$id','$pat_id',DAYOFWEEK('$date'),'$time','$date','NULL')";
+    $query="INSERT INTO appointment (emp_id, patient_id, day, time, date,payment,report) VALUES ('$id','$pat_id',DAYOFWEEK('$date'),'$time','$date','NULL',NULL)";
     mysqli_query($connect,$query);
     header('Location:success.php?date='.$date.'&doc_id='.$id.'&time='.$time);
   }

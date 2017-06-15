@@ -42,15 +42,16 @@
     }
   }
   if(isset($_POST['register-submit'])){
-     $name=mysqli_real_escape_string($connect,$_POST['name']);
-     $email=mysqli_real_escape_string($connect,$_POST['email']);
-     $num=mysqli_real_escape_string($connect,$_POST['num']);
-     $username=mysqli_real_escape_string($connect,$_POST['username']);
-     $pass=mysqli_real_escape_string($connect,$_POST['password']);
+     $name=$_POST['name'];
+     $email=$_POST['email'];
+     $num=$_POST['num'];
+     $username=$_POST['username'];
+     $pass=$_POST['password'];
      $pass=md5($pass);
-     $sex=mysqli_real_escape_string($connect,$_POST['sex']);
-     $dob=mysqli_real_escape_string($connect,$_POST['dob']);
-     $address=mysqli_real_escape_string($connect,$_POST['address']);
+     $sex=$_POST['sex'];
+     $dob=$_POST['dob'];
+     $blood=$_POST['blood'];
+     $address=$_POST['address'];
      $query="select * from users where username like '$username'";
      $run=mysqli_query($connect,$query);
      $query="select * from unverified where username like '$username'";
@@ -62,13 +63,8 @@
        $run=mysqli_query($connect,$query);*/
         require 'mail/PHPMailerAutoload.php';
         $mail = new PHPMailer;
-        $mail->isSMTP();                                     
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'projectohs5@gmail.com';                 // SMTP username
-        $mail->Password = 'projectohs55';                           // SMTP password
-        $mail->Port = 25;                                    // TCP port to connect to
-        $mail->setFrom('projectohs5@gmail.com','OHS');
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        include 'include/smtp.php';
         $mail->addAddress($email);     // Add a recipient
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Verification code';
@@ -77,7 +73,7 @@
         if(!$mail->send()) {
             $warning= 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $query="insert into unverified(name, username, email, sex, dob, phone, address, password, code) VALUES ('$name','$username','$email','$sex','$dob','$num','$address','$pass','$code')";
+            $query="insert into unverified(name, username, email, sex, dob, phone, address, password, code,blood) VALUES ('$name','$username','$email','$sex','$dob','$num','$address','$pass','$code' ,'$blood')";
             $run=mysqli_query($connect,$query);
             $success='A verification code has been sent to your email. Please enter your login information and enter the code.';
         }
@@ -90,6 +86,10 @@
       $rerror=1;
      }
   }
+  if (isset($_SESSION['success'])) {
+    $success=$_SESSION['success'];
+    unset($_SESSION['success']);
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,7 +97,21 @@
    <?php include("include/head.php"); ?>
 <script type="text/javascript" src="jquery/reg.js"></script>
 <link rel="stylesheet" type="text/css" href="css/reg.css">
-
+<title>Login/Sign-up</title>
+<script>
+  $(document).ready(function(){
+    var date_input=$('input[name="dob"]'); //our date input has the name "date"
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    date_input.datepicker({
+      format: 'yyyy-mm-dd',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+      orientation:"top",
+      endDate:'0',
+    })
+  })
+</script>
 
 </head>
 <body onload="all_check();" >
@@ -165,7 +179,7 @@ include("include/navig.php");
               <div class="col-lg-12">
                 <form id="login-form" action="#" method="post" role="form" style="display:<?php if(!isset($rerror)) echo 'block'; else echo 'none'; ?>;">
                   <div class="form-group">
-                    <input type="text" name="username" id="useloginrname" tabindex="1" class="form-control" placeholder="Username" value="" required="">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required="">
                   </div>
                   <div class="form-group">
                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required="">
@@ -214,6 +228,17 @@ include("include/navig.php");
                     <input type="radio" name="sex" tabindex="1" value="O" <?php if(isset($sex)) if($sex=='O') echo 'checked';?>>Other
                   </div>
                   <div class="form-group">
+                    <label >Blood Type:</label>
+                    <select required="" name="blood">
+                      <?php 
+                        $array=array('A-','A+','B-','B+','O-','O+','AB-','AB+');
+                        echo '<option value="">Select your type</option>';
+                        foreach($array as $b)
+                        echo '<option value="'.$b.'">'.$b.'</option>';
+                      ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label class="control-label">Date of birth:</label>
                     <!--<div class="input-group date" data-provide="datepicker">
                       <input type="text" class="form-control">
@@ -224,7 +249,7 @@ include("include/navig.php");
                   <input type="date" name="dob" value="<?php if(isset($rerror)) echo $dob; ?>">
                   </div>
                   <div class="form-group">
-                    <label style="margin-top: 2px'" >Number:</label>
+                    <label style="margin-top: 2px;" >Number:</label>
                     <input type="text" name="num" id="num" tabindex="1" class="form-control" onKeyUp="num_check()" required value="<?php if(isset($rerror)) echo $num; ?>">
                     <p id="num_error"></p>
                   </div>
@@ -263,8 +288,6 @@ include("include/navig.php");
        </div>     
     </div>
  
-
-
  
 </body>
 </html>

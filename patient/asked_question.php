@@ -107,23 +107,27 @@ include("navig.php");
    <hr>
      
     <?php 
-    $queryans="SELECT * FROM questions_answers WHERE ques_id=$ques_id";
+     $queryans="SELECT * FROM questions_answers join employee_detail 
+    where ques_id=$ques_id 
+    AND questions_answers.emp_id=employee_detail.emp_id
+    order by ans_id DESC";
     $run_queryans=mysqli_query($connect,$queryans);
     if(mysqli_num_rows($run_queryans)>0){
     while($rowans=mysqli_fetch_assoc($run_queryans)){
+      $doc_id=$rowans['emp_id'];
        echo '<div class="doc_answer">';
         echo '<h5 class="ques_parag text-right text-capitalize"><span class="fa fa-calendar-o text-warning">&nbsp';
         echo $rowans['date']; echo '</span></h5>
         <div class="row">
             <div style="width:100px;height:120px;"class="col-sm-6 col-md-6 col-xs-6">';
                    echo '<img src="../images/doc_images/';
-                   echo $rowans['doc_image'];
+                   echo $rowans['images'];
                    echo ' " class=" img-circle img-responsive">';
             echo '</div>';
             echo'
             <div class="col-sm-6 col-md-6 col-xs-6"><br>
-            <span class="fa fa-user-md text-capitalize"><a href="#">&nbsp Dr.';echo $rowans['name']; echo'</a></span>
-            <br><span class="fa fa-stethoscope"><a>&nbsp'; echo $rowans['field']; echo'</a></span>
+            <span class="fa fa-user-md text-capitalize"><a href="docprofile.php?id='.$doc_id.'">&nbsp Dr.';echo $rowans['name']; echo'</a></span>
+            <br><span class="fa fa-stethoscope text-capitalize">&nbsp'; echo $rowans['field']; echo'</span>
             </div>
        </div>';
        

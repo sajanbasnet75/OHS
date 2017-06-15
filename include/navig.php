@@ -22,12 +22,11 @@
                             <ul class="dropdown-menu " role="menu">
                                 <li><a href="booking.php">Book an appointment</a></li>
                                 <li class="divider"></li>
-                                <li><a href="">Find a Doctor</a></li>
+                                <li><a href="ask-a-question.php">Ask a Question</a></li>
                                 <li class="divider"></li>
-                                <li><a href="">Video tutorials</a></li>
+                                <li><a href="#">Video gallery</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" style="color:#00102a;">Contact Us</a></li>
                          <?php 
                          if(isset($_SESSION['id'])){
                          echo'<li><a href="logout.php" class="btn-danger" style="color:#fff; font-size:16lopx;">LogOut

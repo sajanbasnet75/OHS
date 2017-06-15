@@ -20,55 +20,21 @@ if (isset($_POST['submit'])) {
   }
   else
     $date='%';
-  $query="select now()";
+
+  $query = "SELECT e.name as emp , p.name as pat ,date,time, field,p.patient_id,a.emp_id,app_id,report FROM appointment a join users u join employee_detail e join patient_detail p WHERE a.emp_id like u.user_id and e.emp_id like u.user_id and a.patient_id like p.patient_id and field like '$field' and e.name like '%$name%' and date like '$date' and date <= CURDATE()";
   $query_run=mysqli_query($connect,$query);
-  $row=mysqli_fetch_assoc($query_run);
-  $query = "SELECT e.name as emp , p.name as pat ,date,time, field,p.patient_id,a.emp_id FROM appointment a join users u join employee_detail e join patient_detail p WHERE a.emp_id like u.user_id and e.emp_id like u.user_id and a.patient_id like p.patient_id and field like '$field' and e.name like '%$name%' and date like '$date' and date>= CURDATE()";
-  $query_run=mysqli_query($connect,$query);
+  echo mysqli_error($connect);
 }
-if (isset($_POST['cancel-submit'])) {
-  if (!empty($_POST['data'])) {
-    require '../mail/PHPMailerAutoload.php';
-    foreach ($_POST['data'] as $key ) {
-      $value=explode(' ', $key);
-      $emp_id=$value[0];
-      $patient_id=$value[1];
-      $date=$value[2];
-      $time=$value[3];
-      $doc=$value[4]. ' '.$value[5];
-      $query="select * from patient_detail where patient_id like '$patient_id'";
-      $run=mysqli_query($connect,$query);
-      $row=mysqli_fetch_assoc($run);
-      $email=$row['email'];
-        $mail = new PHPMailer;
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        require '../include/smtp.php';                                   // TCP port to connect to
-        $mail->setFrom('projectohs5@gmail.com','OHS');
-        $mail->addAddress($email);     // Add a recipient
-        $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Appointment cancellation';
-        $mail->Body    = 'Your appointment with Dr.'.$doc.' on '.$date.' at time '.$time.' has been canceled';
-        $mail->AltBody = 'Your appointment with Dr.'.$doc.' on '.$date.' at time '.$time.' has been canceled';
-        if(!$mail->send()) {
-             $warning= 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            $query="select * from appointment where patient_id like '$patient_id' and emp_id like '$emp_id' and date like '$date' and time like '$time'";
-            $run=mysqli_query($connect,$query);
-            $row=mysqli_fetch_assoc($run);
-            $query="delete from appointment where patient_id like '$patient_id' and emp_id like '$emp_id' and date like '$date' and time like '$time'";
-            $run=mysqli_query($connect,$query);
-            $success='Selected appointments were cancelled.';
-        }
-    }
-  }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <?php 
    include("head.php");
-   ?><script>
+   ?>
+   <link rel="stylesheet" type="text/css" href="css/reg.css"><script type="text/javascript" src="jquery/reg.js"></script>
+   <script>
   $(document).ready(function(){
     var date_input=$('input[name="date"]'); //our date input has the name "date"
     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
@@ -78,12 +44,11 @@ if (isset($_POST['cancel-submit'])) {
       todayHighlight: true,
       autoclose: true,
       orientation:"top",
-      startDate:'0',
-      endDate:'+7d',
+      endDate:'0',
     })
   })
 </script>
-<title>Appointment management</title>
+<title>Report management</title>
 </head>
 <body >
  <?php include('../include/header.php'); ?>
@@ -105,15 +70,15 @@ include("navig.php");
             </div><?php
             } ?>
             <?php
-           if(isset($success)){ ?>
+           if(isset($_SESSION['msg'])){ ?>
             <div class="alert alert-success alert-dismissable" >
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <?php echo $success;?>
+              <?php echo 'Report has been uploaded'; unset($_SESSION['msg']); ?>
             </div><?php
             } ?>
     <div class="row">
       <form action="#" method="POST" role="form">
-        <legend><center>Manage appoinments</center></legend>
+        <legend><center>Manage reports</center></legend>
         <div class="form-group col-md-1">
         </div>
         <div class="form-group col-md-3">
@@ -153,26 +118,29 @@ include("navig.php");
       else {
     ?>
     <div style="margin:2%;">
-    <div class="row">
-      <div class="col-md-3">Doctor</div>
+    <div class="row" style="margin-bottom: 1%;">
+      <div class="col-md-2">Doctor</div>
       <div class="col-md-2">Date</div>
       <div class="col-md-1">Time</div>
-      <div class="col-md-3">Field</div>
+      <div class="col-md-2">Field</div>
       <div class="col-md-2">Patient</div>
       <div class="col-md-1">&nbsp;</div>
     </div>
-    <form action="#" method="POST">
     <?php while($row=mysqli_fetch_assoc($query_run)){ ?>
-    <div class="row">
-      <div class="col-md-3"><?php echo $row['emp']; ?></div>
+    <div class="row" style="margin-bottom: 1%;">
+      <div class="col-md-2"><?php echo $row['emp']; ?></div>
       <div class="col-md-2"><?php echo $row['date']; ?></div>
       <div class="col-md-1"><?php echo $row['time']; ?></div>
-      <div class="col-md-3"><?php echo $row['field']; ?></div>
+      <div class="col-md-2"><?php echo $row['field']; ?></div>
       <div class="col-md-2"><?php echo $row['pat'];  ?></div>
-      <div class="col-md-1"><input type="checkbox" name="data[]" value="<?php echo $row['emp_id'].' '.$row['patient_id'].' '.$row['date'].' '.$row['time'].' '.$row['emp'];  ?>"></div>
+      <form action="upload.php" method="POST" enctype="multipart/form-data">
+      <div class="col-md-2"><input type="file" class="form-control col-md-2" id=""  name="report" required=""></div>
+      <div style="display: none;"><input type="text" name="app_id" value="<?php echo $row['app_id'];  ?>"></div>
+      <div class="col-md-1"><input type="submit" class="btn btn-info" name="submit" value="<?php if($row['report']==NULL) echo 'Upload'; else
+      echo 'Update';?>"></input></div>
+      </form>
     </div>
     <?php }?>
-    <input type="submit" name="cancel-submit" value="Cancel Checked" class="btn btn-primary" style="float: right; margin-right: 5%; margin-top: 5%;">
     </form>
     <?php } } ?>
     </div>
