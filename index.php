@@ -1,6 +1,7 @@
 
 <?php
 include("include/dbconnection.php");
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,7 @@ include("include/navig.php");
 
 </div>
 </div>
-
+<bs3-ca
 <!--news part-->
 <div class="container-fluid">
 <?php

@@ -27,15 +27,11 @@ include("navig.php");
               $run=mysqli_query($connect,$query);
               $row=mysqli_fetch_assoc($run);
               ?>
-              <div class="alert alert-success alert-dismissable" >
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <div class="alert alert-success alert-dismissable" style="margin-top:60px;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" >&times;</a>
               Your appointment with Dr.<?php echo $row['name'];?> has been made on '<?php echo $_GET['date'];?>' at '<?php echo $_GET['time'];?>'
             </div>
-            <div class="well">
-              Would you like to pay now?
-              <a href="" class="btn btn-default">Yes</a>
-              <a href="booking.php" class="btn btn-default" >Not now</a>
-            </div>
+            
               <?php
             }
           ?>

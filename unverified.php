@@ -34,21 +34,10 @@ include("include/dbconnection.php");
       }
   }
 ?>
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>..ohs..</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet"  href="bootstrap/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/animate.css"/>
-   
-  <?php include("include/jquery-ajax-links.php");?>
-  <script src="bootstrap/js/bootstrap.js"></script>
+<title>OHS</title>
+   <?php include("include/head.php"); ?>
 </head>
 <body >
  <?php include('include/header.php'); ?>
@@ -70,7 +59,7 @@ include("include/navig.php");
        <form action="#" method="POST" role="form">
          <legend style="width:200px;">Enter your code</legend>
          <div class="form-group">
-           <input type="text" class="form-control" name="code" required style="width:10%;" maxlength="5">
+           <input type="text" class="form-control" name="code" required style="width:20%;" maxlength="5">
          </div>
          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
        </form>

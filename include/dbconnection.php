@@ -8,7 +8,7 @@ $mysql_db = 'ohso';
 date_default_timezone_set("Asia/Kathmandu");
 session_start();
 $connect = mysqli_connect($mysql_host, $mysql_user, $mysql_pass,$mysql_db);
-mysql_query ("set character_set_results='utf8'");
+mysqli_query ($connect,"set character_set_results='utf8'");
 
 if(!$connect)
 {

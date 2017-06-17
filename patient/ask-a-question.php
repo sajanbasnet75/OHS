@@ -149,7 +149,13 @@ include("navig.php");
    </div>
    <hr>
 <div class="" style="border:solid 1px #dddddd; border-radius:15px 0px 15px 0px; background:#fefefe">
-	<h3 class="text-center text-muted" >Some Asked Questions</h3><hr>
+  <div>
+  <h3 class="text-center text-muted" style="">Some Asked Questions</h3>
+  <form class="text-right">
+    <input type="text" placeholder="Search questions" class="selects" >
+    <button type="submit" class="selects" name="submit" style=" background-color: #06a5e0;"><img src="../images/search-icon.png" width="20px" height="20px" /></button>
+  </form>
+  </div>
      <div class="questions">
 	       <?php
  $query2="SELECT * FROM asked_questions ORDER BY date  and ques_id ASC ";
@@ -161,9 +167,17 @@ include("navig.php");
         <div class="ques_head text-right">       
         <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
         <span class="text-warning fa fa-calendar-o ">&nbsp'; echo $rowa['date']; echo '</span>
-        </div>
-        <a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
-        echo '<hr>';     
+        </div>';
+          $queryans="SELECT * FROM questions_answers join employee_detail 
+          where ques_id=$ques_id 
+          AND questions_answers.emp_id=employee_detail.emp_id
+          order by ans_id DESC";
+          $run_queryans=mysqli_query($connect,$queryans);
+          $r=mysqli_num_rows($run_queryans);
+          echo '<span class="btn btn-danger" style="margin:4px;">Answers &nbsp'; echo $r; echo'</span>'; 
+         echo '<a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
+        echo '<hr>'; 
+        
       };
       ?> 
      

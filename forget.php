@@ -1,8 +1,8 @@
 <?php
 include("include/dbconnection.php");
 if (isset($_POST['submit'])) {
-    $username=$_POST['username'];
-    $phone=$_POST['phone'];
+    $username=mysqli_real_escape_string($connect,$_POST['username']);
+    $phone=mysqli_real_escape_string($connect,$_POST['phone']);
     $query="select * from users natural join patient_detail where username like '$username' and phone like '$phone'";
     if($query_run=mysqli_query($connect,$query))
       if(mysqli_num_rows($query_run)==NULL)

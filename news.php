@@ -77,7 +77,8 @@ include("include/navig.php");
          $news_ids=$_GET['id'];
           $query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_comments.user_id=users.user_id order by date DESC limit 20";
           $query_run=mysqli_query($connect,$query);
-            while($rown=mysqli_fetch_assoc($query_run)){;
+          if(mysqli_num_rows($query_run)>0) {
+            while($rown=mysqli_fetch_assoc($query_run)){
         ?>
       <div class="row" style="padding:15px;">
         <div style="margin:1px 0px 1px 0px;">
@@ -92,7 +93,14 @@ include("include/navig.php");
       </div>
       </div>
       </div> 
-  <?php } ?>
+  <?php }
+    }
+     else{
+        echo '<span class="text-center text-danger ">';
+          echo "No Comments!" ;
+          echo '</span>';
+      }  
+  ?>
   </div>
   
        <?php

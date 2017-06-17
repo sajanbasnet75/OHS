@@ -3,12 +3,13 @@ include("../include/dbconnection.php");
 date_default_timezone_set("Asia/Kathmandu");
 if(isset($_POST['submit_comments'])){
   $comment=mysqli_real_escape_string($connect,$_POST['written_comments']);
+  $id=$_SESSION['id'];
   $name=$_SESSION['username'];
   $news_idd=$_GET['id'];
   $dates= date('Y M d');
     $time=date("h:i:sa");
     $dateandtime=$dates.' at '.$time;
-    $query="INSERT INTO news_comments (news_id,name,comments,date) VALUES('$news_idd','$name','$comment','$dateandtime')";
+    $query="INSERT INTO news_comments (news_id,user_id,comments,date) VALUES('$news_idd','$id','$comment','$dateandtime')";
     mysqli_query($connect,$query) or die(mysql_error());
 
 }
@@ -76,16 +77,17 @@ include("navig.php");
      </div>  
       
       <div class="" style="margin:2px 0px 2px 0px; padding:10px 10px 10px 10px;">
-          <p  style=" font-family: 'Tangerine', serif;white-space: pre-line;
+          <p  style=" font-family: 'Tangerine', serif;
         font-size: 22px;"><?php echo $row['detail'];?></p>
     </div>
      <div class="" style="background:#f6feff; padding:15px;">
      <h4 class="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
      <div style="border-bottom:solid 1px grey;">
             <?php 
-           $news_ids=$_GET['id'];
-$query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_comments.user_id=users.user_id order by date DESC limit 20";
+          $news_ids=$_GET['id'];
+          $query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_comments.user_id=users.user_id order by date DESC limit 20";
           $query_run=mysqli_query($connect,$query);
+          if(mysqli_num_rows($query_run)>0){
             while($rown=mysqli_fetch_assoc($query_run)){;
         ?>
       <div class="row" style="padding:15px;">
@@ -101,7 +103,14 @@ $query="SELECT * from news_comments join users WHERE news_id=$news_ids AND news_
       </div>
       </div>
       </div> 
-  <?php } ?>
+  <?php } 
+       }     
+    else{
+        echo '<span class="text-center text-danger ">';
+          echo "No Comments!" ;
+          echo '</span>';
+      } 
+  ?>
   </div>
   
        <?php

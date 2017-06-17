@@ -65,7 +65,7 @@ include("navig.php");
       </form></div>
       <?php 
         if (isset($_GET['submit'])) {
-          $date=$_GET['date'];
+          $date=mysqli_real_escape_string($connect,$_GET['date']);
           $query="SELECT * FROM users NATURAL JOIN doc_schedule where day like DAYOFWEEK('$date') and emp_id like '$id'";//day like DAYOFWEEK('$date') and
           $query_run=mysqli_query($connect,$query);
           $row=mysqli_fetch_assoc($query_run);

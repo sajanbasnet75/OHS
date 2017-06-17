@@ -59,18 +59,18 @@ include("include/dbconnection.php");
 		</div>
 		<?php
 			if(isset($_GET['submit'])||isset($_GET['field'])){
-				$field=$_GET['field'];
+				$field=mysqli_real_escape_string($connect,$_GET['field']);
 				if($field=="all")
 					$field="%";
 				if(isset($_GET['key'])){
-				$key=$_GET['key'];
+				$key=mysqli_real_escape_string($connect,$_GET['key']);
 				if (empty($key))
 					$key="%";
 				$key='%'.$key.'%';
 				}
 				else
 					$key='%';
-				$query="SELECT * FROM users NATURAL JOIN employee_detail WHERE field LIKE '$field' AND name LIKE '$key' LIMIT 25";
+				$query="SELECT * FROM users u JOIN employee_detail e WHERE u.user_id = e.emp_id and field LIKE '$field' AND name LIKE '$key' LIMIT 25";
 				$query_run=mysqli_query($connect,$query);
 				if(mysqli_num_rows($query_run)==NULL){
 					echo'<h4 style="margin-left:12%; margin-top:1%;">No result found</h4>';
@@ -80,7 +80,7 @@ include("include/dbconnection.php");
 	         	}
 	         }
 	     if(isset($_GET['spec'])){
-				$spec=$_GET['spec'];
+				$spec=mysqli_real_escape_string($connect,$_GET['spec']);
 				$query="SELECT * FROM employee_detail WHERE field LIKE '$spec' LIMIT 25";
 				$query_run=mysqli_query($connect,$query);
 				if(mysqli_num_rows($query_run)==NULL){

@@ -106,16 +106,17 @@ include("include/navig.php");
 
 
 <div class="answer-box" style="">
-   <h3 class="text-center text-muted" style="">Doctors Answers</h3>
-   <hr>
-    
+   
     <?php 
     $queryans="SELECT * FROM questions_answers join employee_detail 
     where ques_id=$ques_id 
     AND questions_answers.emp_id=employee_detail.emp_id
     order by ans_id DESC";
     $run_queryans=mysqli_query($connect,$queryans);
-    if(mysqli_num_rows($run_queryans)>0){
+    $r=mysqli_num_rows($run_queryans);
+    echo '<h3 class="text-center text-muted" style="">Doctors Answers';echo '<span class="text-danger">&nbsp('.$r.')</span></h3>';
+    echo '<hr>';
+    if(mysqli_num_rows($run_queryans)>0){   
     while($rowans=mysqli_fetch_assoc($run_queryans)){
       $doc_id=$rowans['emp_id'];
        echo '<div class="doc_answer">';

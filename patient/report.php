@@ -10,13 +10,13 @@ if (isset($_POST['submit'])) {
   else 
      $field='%';
   if (isset($_POST['name'])&&!empty($_POST['name'])){
-    $name=$_POST['name'];
+    $name=mysqli_real_escape_string($connect,$_POST['name']);
   }
   else{
     $name='%';
   }
   if (isset($_POST['date'])&&!empty($_POST['date'])){
-    $date=$_POST['date'];
+    $date=mysqli_real_escape_string($connect,$_POST['date']);
   }
   else
     $date='%';
@@ -168,11 +168,6 @@ include("navig.php");
 
 </div>
 </div>
-
-<!--news part-->
-<?php
-include("news-headlines.php");
-?>
 
  
 </body>
