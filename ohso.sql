@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 07:31 AM
+-- Generation Time: Jun 17, 2017 at 12:50 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   `payment` int(11) DEFAULT NULL,
   `report` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `appointment`
@@ -49,7 +49,11 @@ INSERT INTO `appointment` (`app_id`, `emp_id`, `patient_id`, `time`, `date`, `pa
 (7, 12, 402, '13-14', '2017-06-14', 0, 'NULL'),
 (8, 43, 402, '11-12', '2017-06-15', 0, 'NULL'),
 (9, 98, 402, '13-14', '2017-06-15', 0, 'NULL'),
-(10, 32, 402, '13-14', '2017-06-16', 0, 'NULL');
+(10, 32, 402, '13-14', '2017-06-16', 0, 'NULL'),
+(11, 38, 402, '12-13', '2017-06-16', 0, 'NULL'),
+(12, 6, 402, '13-14', '2017-06-15', 0, 'NULL'),
+(13, 6, 402, '12-13', '2017-06-15', 0, 'NULL'),
+(14, 35, 402, '11-12', '2017-06-21', 0, 'NULL');
 
 -- --------------------------------------------------------
 
@@ -671,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `employee_detail` (
 INSERT INTO `employee_detail` (`emp_id`, `name`, `dob`, `address`, `email`, `phone`, `field`, `history`, `sex`, `images`) VALUES
 (1, 'Jack Cote', '1986-04-09', 'GJ', 'rutrum@cursuset.net', 146, 'gastroenterologist', 'Msc. in gastroenterologist', 'F', 'doc1.png'),
 (2, 'Daria Velazquez', '1982-11-05', 'Heredia', 'sapien@Curabitur.ca', 615, 'oncologist', 'Msc. in oncologist', 'F', 'doc1.png'),
-(3, 'Colleen Merritt', '1982-03-04', 'Herefordshire', 'orci@blandit.org', 601, 'psychiatrist', 'Msc. in psychiatrist', 'M', 'doc1.png'),
+(3, 'Jack Merritt', '1982-03-04', 'Herefordshire', 'orci@blandit.org', 601, 'psychiatrist', 'Msc. in psychiatrist', 'M', 'doc1.png'),
 (4, 'Vaughan Mcknight', '1985-11-09', 'Vienna', 'mauris.rhoncus@Quisque.ca', 594, 'neurologist', 'Msc. in neurologist', 'F', 'doc1.png'),
 (5, 'Karly Slater', '1986-11-13', 'Lombardia', 'accumsan@semperrutrum.net', 581, 'gastroenterologist', 'Msc. in gastroenterologist', 'M', 'doc1.png'),
 (6, 'Price parker', '1980-11-04', 'Toscana', 'Lorem.ipsum@vitaevelit.co.uk', 136, 'cardiologist', 'Msc. in cardiologist', 'M', 'doc1.png'),
@@ -703,7 +707,7 @@ INSERT INTO `employee_detail` (`emp_id`, `name`, `dob`, `address`, `email`, `pho
 (32, 'Roth Patterson', '1988-03-07', 'C', 'Donec@etrutrumnon.org', 813, 'orthopedician', 'Msc. in orthopedician', 'F', 'doc1.png'),
 (33, 'Margaret Mooney', '1981-10-22', 'Wie', 'Phasellus@duiSuspendisseac.co.uk', 662, 'neurologist', 'Msc. in neurologist', 'F', 'doc1.png'),
 (34, 'Kane Cabrera', '1986-07-21', 'Vienna', 'Donec.fringilla@Donecest.co.uk', 803, 'oncologist', 'Msc. in oncologist', 'F', 'doc1.png'),
-(35, 'Howard Kemp', '1981-12-26', 'Vienna', 'ut.molestie@mauriseuelit.co.uk', 495, 'dentist', 'Msc. in dentist', 'M', 'doc1.png'),
+(35, 'Jack Kemp', '1981-12-26', 'Vienna', 'ut.molestie@mauriseuelit.co.uk', 495, 'dentist', 'Msc. in dentist', 'M', 'doc1.png'),
 (36, 'Flavia Anthony', '1985-06-06', 'Maule', 'hendrerit.Donec@purusac.edu', 563, 'orthopedician', 'Msc. in orthopedician', 'F', 'doc1.png'),
 (37, 'Carla Bennett', '1985-08-29', 'Wie', 'velit@ornareplaceratorci.co.uk', 129, 'neurologist', 'Msc. in neurologist', 'F', 'doc1.png'),
 (38, 'Shoshana Aguilar', '1985-11-07', 'KN', 'fringilla@etlacinia.ca', 184, 'psychiatrist', 'Msc. in psychiatrist', 'F', 'doc1.png'),
@@ -811,16 +815,16 @@ CREATE TABLE IF NOT EXISTS `news_comments` (
   `comments` varchar(200) CHARACTER SET utf8 NOT NULL,
   `date` varchar(33) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`comments_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 --
 -- Dumping data for table `news_comments`
 --
 
 INSERT INTO `news_comments` (`news_id`, `comments_id`, `user_id`, `comments`, `date`) VALUES
-(2, 41, 402, 'asddddddddddddd', '2017 Jun 15 at 10:19:16am'),
-(2, 42, 402, 'qqqq', '2017 Jun 15 at 10:19:35am'),
-(2, 43, 101, 'asdddddasdasd', '2017 Jun 15 at 10:28:47am');
+(4, 44, 402, 'good', '2017 Jun 15 at 01:04:52pm'),
+(4, 45, 0, 'bad', '2017 Jun 15 at 01:07:48pm'),
+(4, 46, 402, 'jjjjjjjjj', '2017 Jun 15 at 01:09:13pm');
 
 -- --------------------------------------------------------
 
@@ -838,7 +842,7 @@ CREATE TABLE IF NOT EXISTS `patient_detail` (
   `phone` varchar(20) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=408 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=410 ;
 
 --
 -- Dumping data for table `patient_detail`
@@ -848,7 +852,7 @@ INSERT INTO `patient_detail` (`patient_id`, `name`, `dob`, `email`, `sex`, `bloo
 (101, 'Emily Wright', '2000-01-26', 'ewright0@paypal.com', 'F', 'AB-', '86-(198)364-7100', '62080 Corscot Drive'),
 (102, 'Alice Morris', '1993-02-02', 'amorris1@booking.com', 'F', 'O-', '63-(706)945-1841', '6888 Maywood Way'),
 (103, 'Irene Cole', '2016-12-19', 'icole2@buzzfeed.com', 'F', 'A-', '54-(320)403-3618', '43436 Mallory Junction'),
-(104, 'Tina Alvarez', '2003-04-07', 'talvarez3@linkedin.com', 'F', 'A+', '380-(627)805-0876', '1243 Brickson Park Alley'),
+(104, 'Tina Alvarez', '2003-04-07', 'sajanbasnet75@gmail.com', 'F', 'A+', '380-(627)805-0876', '1243 Brickson Park Alley'),
 (105, 'Lisa Brooks', '2007-12-17', 'lbrooks4@a8.net', 'F', 'O+', '380-(106)728-6330', '0 Miller Court'),
 (106, 'Carolyn Wallace', '1976-05-01', 'cwallace5@bandcamp.com', 'F', 'O+', '62-(271)989-7228', '475 Surrey Crossing'),
 (107, 'Eugene Carroll', '1996-03-03', 'ecarroll6@fda.gov', 'M', 'A+', '62-(580)269-2282', '2496 Ruskin Terrace'),
@@ -1148,7 +1152,8 @@ INSERT INTO `patient_detail` (`patient_id`, `name`, `dob`, `email`, `sex`, `bloo
 (402, 'Anish Karmi', '1995-12-24', 'karmi214@gmail.com', 'M', 'A+', '2147483647', 'Battisputali'),
 (403, 'Ajay Shrestha', '1995-04-10', 'azzzzz149@gmail.com', 'M', 'A+', '98765', 'Chabhil'),
 (406, 'Anish', '1995-12-24', 'karmi214@gmail.com', 'M', 'A+', '12345', '12345'),
-(407, 'sam', '2015-05-17', 'sam@gmail.com', 'F', 'A-', '98772345', 'kapan');
+(407, 'sam', '2015-05-17', 'sam@gmail.com', 'F', 'A-', '98772345', 'kapan'),
+(409, 'Sajan', '1996-04-08', 'sajanbasnet75@gmail.com', NULL, '', '2147483647', 'kapan,kathmandu');
 
 -- --------------------------------------------------------
 
@@ -1201,6 +1206,9 @@ CREATE TABLE IF NOT EXISTS `unverified` (
 
 INSERT INTO `unverified` (`name`, `username`, `email`, `sex`, `dob`, `phone`, `address`, `blood`, `password`, `code`) VALUES
 ('asdasd', 'asdasd', 'sajanbasnet75@gmail.com', 'M', '2017-06-13', 2147483647, 'kaoan', 'A-', '62648a5c73dbfda4d05ffb977598da5d', '79889'),
+('Chris Cornell', 'Chris', 'sajanbasnet75@gmail.com', 'M', '1994-06-06', 2147483647, 'Kapan,Kathmandu', 'A+', '6b34fe24ac2ff8103f6fce1f0da2ef57', '22623'),
+('Chris Cornell', 'Chris Cornell', 'sajanbasnet75@gmail.com', 'M', '1990-06-12', 2147483647, 'kapan,kathmandu', 'A+', '6b34fe24ac2ff8103f6fce1f0da2ef57', '34554'),
+('Chris', 'Chris Vedder', 'sajanbasnet75@gmail.com', 'M', '1990-06-12', 2147483647, 'kapan,kathmandu', 'A+', '6b34fe24ac2ff8103f6fce1f0da2ef57', '23656'),
 ('sajan', 'ram', 'sajanbasnet75@gmail.com', 'M', '1999-06-13', 123123213, 'karmi', 'B-', '62648a5c73dbfda4d05ffb977598da5d', '52102'),
 ('Ram Prasad', 'ram12345', 'ramprasad12345@gmail.com', 'M', '2017-05-31', 12345, 'old house12345', 'B+', '827ccb0eea8a706c4c34a16891f84e7b', '93270');
 
@@ -1216,7 +1224,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(32) NOT NULL,
   `position` varchar(20) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=409 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=410 ;
 
 --
 -- Dumping data for table `users`
@@ -1630,7 +1638,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `position`) VALUES
 (405, 'anish405', '1dc43796fb1b397a7f2b43180068b580', 'doctor'),
 (406, 'anish1234', '827ccb0eea8a706c4c34a16891f84e7b', 'patient'),
 (407, 'sam', '332532dcfaa1cbf61e2a266bd723612c', 'patient'),
-(408, 'sajan408', '08866b4db1d8a7285d46ef30c3d9feae', 'doctor');
+(408, 'sajan408', '08866b4db1d8a7285d46ef30c3d9feae', 'doctor'),
+(409, 'sajan75', '62648a5c73dbfda4d05ffb977598da5d', 'patient');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
