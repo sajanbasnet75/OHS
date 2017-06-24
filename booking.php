@@ -65,8 +65,9 @@ include("include/dbconnection.php");
 				if(isset($_GET['key'])){
 				$key=mysqli_real_escape_string($connect,$_GET['key']);
 				if (empty($key))
-					$key="%";
+					{$key='%';}
 				$key='%'.$key.'%';
+				
 				}
 				else
 					$key='%';

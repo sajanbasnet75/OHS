@@ -45,9 +45,9 @@ include("navig.php");
            </div></a>
 
            
-             <a href="ask-a-question.php"><div class="col-sm-2 col-xs-6  choices1 pull-right" id="choice-mob">
-                <div class="icon-main" id="icon-mob"><img src="../images/ask.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
-                  <button type="button" class="btn btn-primary" >Ask a Question</button>
+             <a href="confirm.php"><div class="col-sm-2 col-xs-6  choices1 pull-right" id="choice-mob">
+                <div class="icon-main" id="icon-mob"><img src="../images/booking.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
+                  <button type="button" class="btn btn-primary" >Confirm appointments</button>
             </div></a>
        </div>     
     </div>

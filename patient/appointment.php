@@ -65,8 +65,8 @@ include("navig.php");
       </form></div>
       <?php 
         if (isset($_GET['submit'])) {
-          $date=mysqli_real_escape_string($connect,$_GET['date']);
-          $query="SELECT * FROM users NATURAL JOIN doc_schedule where day like DAYOFWEEK('$date') and emp_id like '$id'";//day like DAYOFWEEK('$date') and
+          $date=$_GET['date'];
+          $query="SELECT * FROM users u , doc_schedule d where u.user_id = d.emp_id and day like DAYOFWEEK('$date') and emp_id like '$id'";//day like DAYOFWEEK('$date') and
           $query_run=mysqli_query($connect,$query);
           $row=mysqli_fetch_assoc($query_run);
           $data=array('8-9','9-10','10-11','11-12','12-13','13-14','14-15','15-16','16-17');
@@ -82,7 +82,7 @@ include("navig.php");
               if($em[0]>=$time[0]&&$em[1]<=$time[1]){
                 $query="select * from appointment where emp_id like '$id' and time like '$key' and date like '$date'";
                 $query_run1=mysqli_query($connect,$query);
-                if(mysqli_num_rows($query_run1)<5){
+                if(mysqli_num_rows($query_run1)!=1){
                   echo '<div ><a class="btn btn-success col-sm-1" href="appointment.php?date='.$date.'&doc_id='.$id.'&time='.$key.'">'.$key.'</a></div>';
                 }
                 else

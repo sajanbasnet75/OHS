@@ -1,11 +1,5 @@
 <?php
 include("include/dbconnection.php");
-if(isset($_GET['submit_search'])){
-$search=$_GET['search_item'];
-$query_search="SELECT * FROM asked_questions where ques_details and ques_topic like $search;";
-$query_search_run=mysqli_query($connect,$query_search_run);
-if(mysqli_num_rows() 
-}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +11,7 @@ if(mysqli_num_rows()
 body{
     background-color:#f1f9fb;
    }
+ 
    .headline{
     color:#0b3c5d; 
     font-weight:bold;
@@ -96,11 +91,24 @@ include("include/navig.php");
   <hr>
      <div class="questions">
      <?php
- $query2="SELECT * FROM asked_questions ORDER BY date  and ques_id ASC  ";
- $query_run2=mysqli_query($connect,$query2);
- while ($rowa=mysqli_fetch_assoc($query_run2)){
-  $ques_id=$rowa['ques_id'];
-	     echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
+     if(isset($_GET['submit_search'])){
+      $searched=mysqli_real_escape_string($connect,$_GET['search_item']);
+      $searched_questions="%".$searched."%"; 
+     }
+     else{
+          $searched_questions="%";
+        }
+         $query2="SELECT * FROM asked_questions where ques_topic LIKE '$searched_questions' or ques_details LIKE '$searched_questions' ORDER BY date  and ques_id ASC  ";
+         $query_run2=mysqli_query($connect,$query2);
+         if(mysqli_num_rows($query_run2)==NULL){
+          echo '<span class="text-center text-danger ans_parag">';
+          echo "No such Questions!" ;
+          echo '</span>';
+         }
+         else{
+         while ($rowa=mysqli_fetch_assoc($query_run2)){
+         $ques_id=$rowa['ques_id'];
+	       echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
 	      <p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
 	      <div class="ques_head text-right">       
         <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
@@ -114,8 +122,9 @@ include("include/navig.php");
           $r=mysqli_num_rows($run_queryans);
           echo '<span class="btn btn-danger" style="margin:4px;">Answers &nbsp'; echo $r; echo'</span>'; 
          echo '<a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
-        echo '<hr>';     
-      };
+         echo '<hr>';     
+         }      
+      }
       ?> 
 
      </div>

@@ -151,18 +151,31 @@ include("navig.php");
 <div class="" style="border:solid 1px #dddddd; border-radius:15px 0px 15px 0px; background:#fefefe">
   <div>
   <h3 class="text-center text-muted" style="">Some Asked Questions</h3>
-  <form class="text-right">
-    <input type="text" placeholder="Search questions" class="selects" >
-    <button type="submit" class="selects" name="submit" style=" background-color: #06a5e0;"><img src="../images/search-icon.png" width="20px" height="20px" /></button>
+  <form class="text-right" method="GET">
+    <input type="text" placeholder="Search questions" class="selects"  name="search_item">
+    <button type="submit" class="selects" name="submit_search" style=" background-color: #06a5e0;"><img src="../images/search-icon.png" width="20px" height="20px" /></button>
   </form>
   </div>
      <div class="questions">
-	       <?php
- $query2="SELECT * FROM asked_questions ORDER BY date  and ques_id ASC ";
- $query_run2=mysqli_query($connect,$query2);
- while ($rowa=mysqli_fetch_assoc($query_run2)){
-  $ques_id=$rowa['ques_id'];
-       echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
+	 <?php
+    if(isset($_GET['submit_search'])){
+      $searched=mysqli_real_escape_string($connect,$_GET['search_item']);
+      $searched_questions="%".$searched."%"; 
+     }
+     else{
+          $searched_questions="%";
+        }
+         $query2="SELECT * FROM asked_questions where ques_topic LIKE '$searched_questions' or ques_details LIKE '$searched_questions' ORDER BY date  and ques_id ASC  ";
+         $query_run2=mysqli_query($connect,$query2);
+         if(mysqli_num_rows($query_run2)==NULL){
+          echo '<span class="text-center text-danger ans_parag">';
+          echo "No such Questions!" ;
+          echo '</span>';
+         }
+         else{
+          while ($rowa=mysqli_fetch_assoc($query_run2)){
+         $ques_id=$rowa['ques_id'];
+        echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
         <p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
         <div class="ques_head text-right">       
         <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
@@ -178,7 +191,8 @@ include("navig.php");
          echo '<a href="asked_question.php?ques_id='.$ques_id.'" class="btn btn-success text-right ques_head">View</a>';  
         echo '<hr>'; 
         
-      };
+      }
+    }
       ?> 
      
  </div>

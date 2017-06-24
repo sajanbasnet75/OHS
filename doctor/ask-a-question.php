@@ -73,28 +73,28 @@ include("navig.php");
 <div class="" style="border:solid 1px grey; border-radius:15px 0px 15px 0px; background:#fefefe">
   <div>
   <h3 class="text-center text-muted" style="">Asked Questions</h3>
-  <form class="text-right">
-    <input type="text" placeholder="Search questions" class="selects" >
-    <button type="submit" class="selects" name="submit" style=" background-color: #06a5e0;"><img src="../images/search-icon.png" width="20px" height="20px" /></button>
-  </form>
+  
   </div>
 	<hr>
      <div class="questions">
-     <?php
 
-$emp_id=$_SESSION['id'];
-$queryd="SELECT * FROM employee_detail where emp_id=$emp_id";
-$run_query=mysqli_query($connect,$queryd);
-while($row=mysqli_fetch_assoc($run_query)){
-$field=$row['field'];}
+<?php
 
- $query2="SELECT * FROM asked_questions where field='$field' order by date  and ques_id ASC ";
- $query_run2=mysqli_query($connect,$query2);
- if(mysqli_num_rows($query_run2)>0){
- while ($rowa=mysqli_fetch_assoc($query_run2)){
+    $emp_id=$_SESSION['id'];
+    $queryd="SELECT * FROM employee_detail where emp_id=$emp_id";
+    $run_query=mysqli_query($connect,$queryd);
+    while($row=mysqli_fetch_assoc($run_query)){
+    $field=$row['field'];}
+
+     $query2="SELECT * FROM asked_questions where field='$field' order by date  and ques_id ASC ";
+     $query_run2=mysqli_query($connect,$query2);
+     if(mysqli_num_rows($query_run2)>0){
+     while ($rowa=mysqli_fetch_assoc($query_run2)){
          $ques_id=$rowa['ques_id'];
-	     echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; echo '</h3>
-	      <p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
+	     echo '<h3 class="ques_head text-capitalize">'; echo $rowa['ques_topic']; 
+        echo '<a href="report_ques.php?ques_id='.$ques_id.'"" class="btn btn-danger pull-right">Report</a>';
+        echo '</h3>';
+        echo '<p class="ques_parag ">'; echo $rowa['ques_details']; echo '</p>
 	      <div class="ques_head text-right">       
         <span class="fa fa-user ques_parag text-danger text-capitalize">&nbsp'; echo $rowa['sex'].",".$rowa['age']; echo '</span>
         <span class="text-warning fa fa-calendar-o ">&nbsp'; echo $rowa['date']; echo '</span>
@@ -116,7 +116,7 @@ $field=$row['field'];}
           echo "No Questions!" ;
           echo '</span>';
       }
-      ?> 
+   ?> 
      </div>
      
 </div>

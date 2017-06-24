@@ -249,7 +249,7 @@ include("include/navig.php");
                   <input type="date" name="dob" value="<?php if(isset($rerror)) echo $dob; ?>">
                   </div>
                   <div class="form-group">
-                    <label style="margin-top: 2px;" >Number:</label>
+                    <label style="margin-top: 2px;" >Phone Number:</label>
                     <input type="text" name="num" id="num" tabindex="1" class="form-control" onKeyUp="num_check()" required value="<?php if(isset($rerror)) echo $num; ?>">
                     <p id="num_error"></p>
                   </div>

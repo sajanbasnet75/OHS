@@ -1,7 +1,6 @@
 
 <?php
 include("include/dbconnection.php");
-session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,18 +23,18 @@ include("include/navig.php");
          <h1 id="welcome-text" class="text-center" style="margin-top:75px;">WELCOME TO OHS</h1> </br>
         <div class="row banner-choices container-fluid" >
             <a href="booking.php" class="opt1"> <div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
-                  <div class="icon-main" id="icon-mob"><img src="images/find-doctor.png"alt="booking"   style="filter: blur(5px);" class="img-responsive icon-pic" id="pic-mob" ></div> </br> </br> 
+                  <div class="icon-main" id="icon-mob"><img src="images/find-doctor.png"alt="booking"   class="img-responsive icon-pic" id="pic-mob" ></div> </br> </br> 
                    <button type="button" class="btn btn-primary"  >Book Appointment</button>
             </div> </a>
            
-          <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
+          <a href="logreg.php"><div class="col-sm-2 col-xs-12  choices1 pull-right" id="choice-mob">
                      <div class="icon-main" id="icon-mob"><img src="images/health-records.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
                         <button type="button" class="btn btn-primary" >Health Records</button>
             </div></a>
 
-           <a href="#"><div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
+           <a href="video.php"><div class="col-sm-2 col-xs-12  choices1 pull-left" id="choice-mob">
                      <div class="icon-main" id="icon-mob"><img src="images/video.png"alt="icon" class="img-responsive icon-pic" id="pic-mob"></div> </br> </br> 
-                       <button type="button" class="btn btn-primary" >News and Videos</button>
+                       <button type="button" class="btn btn-primary" >Videos</button>
                     
            </div></a>
 
@@ -51,7 +50,7 @@ include("include/navig.php");
 
 </div>
 </div>
-<bs3-ca
+
 <!--news part-->
 <div class="container-fluid">
 <?php
@@ -64,6 +63,8 @@ include("include/news-headlines.php");
 include("include/ourdoctors.php");
 ?>
 </div>
- 
+ <?php
+include("include/footer.php");
+?>
 </body>
 </html>

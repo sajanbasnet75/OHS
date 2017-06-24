@@ -1,9 +1,20 @@
 <?php
 include("include/dbconnection.php");
 if (isset($_POST['submit'])) {
-    $username=mysqli_real_escape_string($connect,$_POST['username']);
-    $phone=mysqli_real_escape_string($connect,$_POST['phone']);
-    $query="select * from users natural join patient_detail where username like '$username' and phone like '$phone'";
+    $username=$_POST['username'];
+    $phone=$_POST['phone'];
+    $query="select * from users where username like '$username'";
+    $query_run=mysqli_query($connect,$query);
+	if(mysqli_num_rows($query_run)==NULL)
+        $wrong='You have entered incorrect username or phone number.';
+    else{
+    	$row=mysqli_fetch_assoc($query_run);
+    	$id=$row['user_id'];
+    	$pos=$row['position'];
+    	if($pos=='patient')
+    		$query="select * from patient_detail where patient_id like '$id' and phone like '$phone'";
+    	else
+    		$query="select * from employee_detail where emp_id like '$id' and phone like '$phone'";
     if($query_run=mysqli_query($connect,$query))
       if(mysqli_num_rows($query_run)==NULL)
         $wrong='You have entered incorrect username or phone number.';
@@ -13,12 +24,7 @@ if (isset($_POST['submit'])) {
         require 'mail/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'projectohs5@gmail.com';                 // SMTP username
-        $mail->Password = 'projectohs55';                           // SMTP password
-        $mail->Port = 25;                                    // TCP port to connect to
-        $mail->setFrom('projectohs5@gmail.com','OHS');
+        include 'include/smtp.php';
         $mail->addAddress($row['email']);     // Add a recipient
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'New password';
@@ -31,16 +37,18 @@ if (isset($_POST['submit'])) {
             $code=md5($code);
             $query="update users set password = '$code' where username like '$username'";
             $run=mysqli_query($connect,$query);
-            $_SESSION['new']=1;
+            $_SESSION['new']='New password has been sent to your email';
             header('Location:logreg.php');
         }
       }
+  }
   }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <?php include("include/head.php"); ?>
+  <title>Forget password</title>
 </head>
 <body >
  <?php include('include/header.php'); ?>
