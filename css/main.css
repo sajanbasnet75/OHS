@@ -9,9 +9,14 @@ div{
 }
 p{
   white-space: pre-line;
+  text-align: justify;
+
 }
 @media only screen and (max-width: 768px) {
-    
+    p{
+  white-space:pre-line;
+  text-align: initial;
+ }
     #logo {
         width: 220px;
        }
@@ -51,9 +56,10 @@ p{
       height:40px;
     } 
       #newsparag{
-      font-size:15px;
+      font-size:14px;
       font-family: Arial Narrow, sans-serif;
-   margin: 4px auto 23px auto;
+     white-space: pre-line;
+     margin: 4px auto 23px auto;
    
    }
   #news-box-contents{

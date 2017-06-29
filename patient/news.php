@@ -30,6 +30,8 @@ padding:10px;
 .more-news{
 padding:13px;
 } 
+.news_headerr{font-family: 'Tangerine', serif; font-size: 55px;}
+
 </style>
 </head>
 <body >
@@ -50,10 +52,10 @@ include("navig.php");
           $row=mysqli_fetch_assoc($query_run);
         }
        ?>
-<div class="col-sm-8 col-lg-8 col-md-8 col-xs-12 news-body" style="border-right:solid #cfcfdf;">
+<div class="col-sm-8 col-lg-8 col-md-8 col-xs-12 news-body" id="news-body">
       
      <div class="text-capitalize " style="margin:2px 0px 10px 0px; padding:0px 10px 0px 10px;">
-      <span style=" font-family: 'Tangerine', serif; font-size: 55px;">
+      <span  class="news_headerr" id="news_headerr">
       <?php
       echo "<span style='border-bottom:ridge 2px grey;'>";
       echo $row['title'];
@@ -66,7 +68,7 @@ include("navig.php");
     <?php 
     echo '<span class="fa fa-calendar-o ">&nbsp</span>';
     echo $row['date'];
-    echo " &nbsp &nbsp";
+    echo "  &nbsp &nbsp";
     echo '<span class="fa fa-user ">&nbsp</span>';
     echo $row['author']; 
     ?>
@@ -81,7 +83,7 @@ include("navig.php");
         font-size: 22px;"><?php echo $row['detail'];?></p>
     </div>
      <div class="" style="background:#f6feff; padding:15px;">
-     <h4 class="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
+     <h4 clasws="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
      <div style="border-bottom:solid 1px grey;">
             <?php 
           $news_ids=$_GET['id'];

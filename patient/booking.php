@@ -95,5 +95,8 @@ include("../include/dbconnection.php");
 </div>
 <?php  include("top_specialist.php"); 
 ?>
+<?php
+include("../include/footer.php");
+?>
 </body>
 </html>

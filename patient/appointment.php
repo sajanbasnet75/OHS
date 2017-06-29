@@ -111,9 +111,8 @@ include("navig.php");
 </div>
 </div>
 
-<!--news part-->
 <?php
-include("news-headlines.php");
+include("../include/footer.php");
 ?>
 
  

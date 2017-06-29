@@ -21,6 +21,8 @@
     }
    .news-box-content{background:#f0f0f0; height:500px; padding:2px 2px 10px 1px;
     }
+    .newsheadline_imagebox{height:220px;background:white;
+     }
  </style>
 
 <h1 class="news-headline text-center headline" ><span style="border-bottom:ridge 1px grey;">LATEST NEWS</span></h1>
@@ -36,7 +38,7 @@
 <div class="col-xs-12 col-sm-4 col-lg-4 news-box">
     <div class="news-box-content" id="news-box-contents">
     <!-- for images-->
-    <div class="" style=" height:220px;background:white;"> 
+    <div class="newsheadline_imagebox" id="newsheadline_imagebox"> 
          <?php echo" <img src='../images/newsImg/".$row['image']." ' style='max-width:100%; max-height:100%;display: block;  margin: 0 auto;' >";?>
     </div>  
      <!-- for date and author-->
