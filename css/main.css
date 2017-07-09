@@ -74,6 +74,9 @@ p{
     font-size: 35px;
   }
   #news-body{border:none;}
+ #vid_container{
+  height:200px;
+ }
 }
 
 @media only screen and (max-width: 330px ) {
@@ -265,3 +268,13 @@ background:  rgba(242,245,255,.8)url("../images/loading.gif") no-repeat 50% 55%;
 .spec-icons{
     margin: 14px auto 14px auto;
 }
+.vid_container{
+  height:450px;
+}
+.stick-video{
+  position: fixed;
+  margin-top:60px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+   width:25%;}

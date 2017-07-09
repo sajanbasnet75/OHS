@@ -60,6 +60,16 @@ include("include/navig.php");
     echo $row['author']; 
     ?>
     </div>
+<div id="vid_container" class="vid_container">    
+<div class="scroll-video"> <!-- for images-->
+        <center >
+         <video src="video/is.mp4" autobuffer  controls width="700px" class="img-responsive" id="newsVideos"
+         style="border:solid 1px grey;box-shadow: 5px 5px 2px #888888;">
+          </video> 
+        <button class="video-button btn btn-danger btn-block" style="margin-top:5px;">Close</button>
+        </center>
+     </div>  
+ </div> 
 
      <div class="" style="width:auto;"> <!-- for images-->
              <center><?php echo" <img class='card-img img-responsive' src='images/newsImg/".$row['image']." '  >";?></center>

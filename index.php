@@ -18,7 +18,7 @@ include("include/dbconnection.php");
 <div class="bg-color">
 <?php
 include("include/navig.php");
-?>
+?>     
        <div class="container banner-content " >
          <h1 id="welcome-text" class="text-center" style="margin-top:75px;">WELCOME TO OHS</h1> </br>
         <div class="row banner-choices container-fluid" >

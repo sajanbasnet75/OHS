@@ -1,3 +1,4 @@
+var offset;//for video;
 $(document).ready(function(){
 /*for ask a  question */
 $('.include_symptom').hide();
@@ -14,9 +15,17 @@ $('.provide_box').slideDown('slow');
 }); /*end*/
 
 /*popup*/
-if($(window).width()>500){
+if($(window).width()>768){
    $('.main-nav').data('size','big');
+   //for video....<
+   $('#newsVideos').on('play', function() {
+   $('.scroll-video').data('status','played');
+});
 
+$('#newsVideos').on('pause', function() {
+   $('.scroll-video').data('status','paused');
+});
+//....>
 $('.choices1').mouseenter(function() {
 $(this ).animate({
  height: '+=13px'
@@ -43,8 +52,23 @@ else{
    $('.main-header').hide();
 
    }
+$('.video-button').hide();//this is for video
 
+$('.video-button').on('click',function(){
+  $('.scroll-video').removeClass('stick-video');
+  $(this).hide();
+  $('#newsVideos').each(function () { 
+    this.pause() 
+  });
 });
+
+var videoBox=$('.scroll-video');
+var top=videoBox.offset().top;
+offset = Math.floor( top + (videoBox.outerHeight()/ 2 ) );
+
+   
+});
+
 
 
 $(window).scroll(function(){
@@ -53,7 +77,7 @@ $(window).scroll(function(){
         {
         $('.logoimg').slideUp('500');
             $('.main-nav').data('size','small').addClass('navbar-fixed-top').css('background-color', 'rgba(255, 255, 255, .6)');
-        $('.main-nav').stop().animate({
+        $('.main-nav').animate({
                 height:'58px',
             },1000);
             $('.nav-pills').removeClass('navi');   
@@ -76,4 +100,28 @@ else
   
         }
       } 
+});
+ 
+
+$(window)
+
+.on('load',function(){
+})
+.on('scroll',function(){  
+ console.log(offset);
+
+     if($(window).scrollTop()>offset){
+      if($('.scroll-video').data('status') == 'played')
+        {   $('.scroll-video').data('status','paused').addClass('stick-video');
+            $('.video-button').show();
+        }
+      }
+    else
+    {
+        if($('.scroll-video').data('status') == 'paused')
+        { $('.scroll-video').removeClass('stick-video').data('status','played');
+         $('.video-button').hide();
+        }
+      } 
+
 });
