@@ -60,6 +60,7 @@ include("include/navig.php");
     echo $row['author']; 
     ?>
     </div>
+    <div style="height:4500px;border:solid 1px black;"></div>
 <div id="vid_container" class="vid_container">    
 <div class="scroll-video"> <!-- for images-->
         <center >

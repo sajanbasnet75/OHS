@@ -1,4 +1,5 @@
-var offset;//for video;
+var offset;
+var current_pos;//for video;
 $(document).ready(function(){
 /*for ask a  question */
 $('.include_symptom').hide();
@@ -55,7 +56,7 @@ else{
 $('.video-button').hide();//this is for video
 
 $('.video-button').on('click',function(){
-  $('.scroll-video').removeClass('stick-video');
+  $('.scroll-video').removeClass('stick-video').data('status','paused');
   $(this).hide();
   $('#newsVideos').each(function () { 
     this.pause() 
@@ -65,14 +66,12 @@ $('.video-button').on('click',function(){
 var videoBox=$('.scroll-video');
 var top=videoBox.offset().top;
 offset = Math.floor( top + (videoBox.outerHeight()/ 2 ) );
-
-   
 });
 
 
 
 $(window).scroll(function(){
-     if($(document).scrollTop()>0){
+     if($(window).scrollTop()>0){
       if($('.main-nav').data('size') == 'big')
         {
         $('.logoimg').slideUp('500');
@@ -107,21 +106,21 @@ $(window)
 
 .on('load',function(){
 })
-.on('scroll',function(){  
- console.log(offset);
-
-     if($(window).scrollTop()>offset){
+.on('scroll',function(){
+var scrolltop=$(window).scrollTop();
+var scrollBottom=offset-$(window).height();//getting value of top on scrolldown
+     //for scrolling top
+     if((scrolltop>offset) || (scrolltop<scrollBottom)){
       if($('.scroll-video').data('status') == 'played')
         {   $('.scroll-video').data('status','paused').addClass('stick-video');
             $('.video-button').show();
         }
       }
-    else
+    else 
     {
         if($('.scroll-video').data('status') == 'paused')
         { $('.scroll-video').removeClass('stick-video').data('status','played');
          $('.video-button').hide();
         }
-      } 
-
+      }    
 });
