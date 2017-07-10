@@ -60,10 +60,12 @@ include("include/navig.php");
     echo $row['author']; 
     ?>
     </div>
+   <!-- this is for sticky video 
     <div style="height:4500px;border:solid 1px black;"></div>
 <div id="vid_container" class="vid_container">    
 <div class="scroll-video"> <!-- for images-->
-        <center >
+   <!--   
+   <center >
          <video src="video/is.mp4" autobuffer  controls width="700px" class="img-responsive" id="newsVideos"
          style="border:solid 1px grey;box-shadow: 5px 5px 2px #888888;">
           </video> 
@@ -71,7 +73,7 @@ include("include/navig.php");
         </center>
      </div>  
  </div> 
-
+-->
      <div class="" style="width:auto;"> <!-- for images-->
              <center><?php echo" <img class='card-img img-responsive' src='images/newsImg/".$row['image']." '  >";?></center>
      </div>  
