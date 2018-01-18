@@ -1,5 +1,3 @@
-var offset;
-var current_pos;//for video;
 $(document).ready(function(){
 /*for ask a  question */
 $('.include_symptom').hide();
@@ -18,14 +16,7 @@ $('.provide_box').slideDown('slow');
 /*popup*/
 if($(window).width()>768){
    $('.main-nav').data('size','big');
-   //for video....<
-   $('#newsVideos').on('play', function() {
-   $('.scroll-video').data('status','played');
-});
-
-$('#newsVideos').on('pause', function() {
-   $('.scroll-video').data('status','paused');
-});
+  
 //....>
 $('.choices1').mouseenter(function() {
 $(this ).animate({
@@ -53,19 +44,7 @@ else{
    $('.main-header').hide();
 
    }
-$('.video-button').hide();//this is for video
 
-$('.video-button').on('click',function(){
-  $('.scroll-video').removeClass('stick-video').data('status','paused');
-  $(this).hide();
-  $('#newsVideos').each(function () { 
-    this.pause() 
-  });
-});
-
-var videoBox=$('.scroll-video');
-var top=videoBox.offset().top;
-offset = Math.floor( top + (videoBox.outerHeight()/ 2 ) );
 });
 
 
@@ -102,25 +81,3 @@ else
 });
  
 
-$(window)
-
-.on('load',function(){
-})
-.on('scroll',function(){
-var scrolltop=$(window).scrollTop();
-var scrollBottom=offset-$(window).height();//getting value of top on scrolldown
-     //for scrolling top
-     if((scrolltop>offset) || (scrolltop<scrollBottom)){
-      if($('.scroll-video').data('status') == 'played')
-        {   $('.scroll-video').data('status','paused').addClass('stick-video');
-            $('.video-button').show();
-        }
-      }
-    else 
-    {
-        if($('.scroll-video').data('status') == 'paused')
-        { $('.scroll-video').removeClass('stick-video').data('status','played');
-         $('.video-button').hide();
-        }
-      }    
-});

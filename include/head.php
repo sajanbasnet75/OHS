@@ -10,6 +10,7 @@
   <link href="css/animate.css" rel="stylesheet" />
    
    <script src="jquery/jquery.js"></script>
+ <script src="jquery/video.js"></script>
  <script src="jquery/nav-shrink.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
   <script src="bootstrap/js/bootstrap-datepicker.js"></script>

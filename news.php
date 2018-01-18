@@ -39,7 +39,7 @@ include("include/navig.php");
           $row=mysqli_fetch_assoc($query_run);
         }
        ?>
-<div class="col-sm-8 col-lg-8 col-md-8 col-xs-12 news-body" id="news-body">
+<div class="col-sm-8 col-lg-8 col-md-8 col-xs-12 news-body" id="news-body" >
       
      <div class="text-capitalize " style="margin:2px 0px 10px 0px; padding:0px 10px 0px 10px;">
       <span  class="news_headerr" id="news_headerr">
@@ -60,28 +60,45 @@ include("include/navig.php");
     echo $row['author']; 
     ?>
     </div>
-   <!-- this is for sticky video 
-    <div style="height:4500px;border:solid 1px black;"></div>
-<div id="vid_container" class="vid_container">    
-<div class="scroll-video"> <!-- for images-->
-   <!--   
-   <center >
-         <video src="video/is.mp4" autobuffer  controls width="700px" class="img-responsive" id="newsVideos"
-         style="border:solid 1px grey;box-shadow: 5px 5px 2px #888888;">
-          </video> 
-        <button class="video-button btn btn-danger btn-block" style="margin-top:5px;">Close</button>
-        </center>
-     </div>  
- </div> 
--->
+
+    <!--this is used for video remove this in original project-->
+
+    <?php if ($row['image']!=NULL){ ?>
      <div class="" style="width:auto;"> <!-- for images-->
              <center><?php echo" <img class='card-img img-responsive' src='images/newsImg/".$row['image']." '  >";?></center>
      </div>  
+      <?php } ?>
       
+      <?php $details=$row['detail'];
+      $CountDetail=strlen($details);
+         
+      ?>
       <div class="" style="margin:2px 0px 2px 0px; padding:10px 10px 10px 10px;">
+               
+        
           <p  style=" font-family: 'Tangerine', serif;
-        font-size: 22px;"><?php echo $row['detail'];?></p>
+        font-size: 22px;"><?php echo substr($row['detail'],0,$CountDetail/2);?></p>
     </div>
+
+        <?php if ($row['Video']!=NULL){ ?> 
+      <div id="vid_container" class="vid_container">   
+<div class="scroll-video" style=" margin-top:30px"> 
+        <center >
+
+         <?php echo '<video src="video/'.$row['Video'].'" autobuffer  controls width="700px" class="img-responsive" id="newsVideos"
+         style="border:solid 1px grey;box-shadow: 5px 5px 2px #888888;">';?>
+          </video> 
+        <button class="video-button"><b>&times</b></button>
+        </center>
+     </div>  
+ </div> 
+ <?php } ?>
+    
+  <div class="" style="margin:2px 0px 2px 0px; padding:10px 10px 10px 10px;">      
+          <p  style=" font-family: 'Tangerine', serif;
+        font-size: 22px;"><?php echo substr($row['detail'],$CountDetail/2,$CountDetail);?></p>
+  </div>
+
      <div class="" style="background:#f6feff; padding:15px;">
      <h4 clasws="text-muted text-left" style="border-bottom:solid 1px grey;">Comments</h4>
      <div style="border-bottom:solid 1px grey;">
@@ -140,7 +157,7 @@ include("include/navig.php");
   </div>  
 </div>
   
-  <div class="col-sm-4 col-lg-4 col-md-4 col-xs-12 more-news" >
+  <div class="col-sm-4 col-lg-4 col-md-4 col-xs-12 more-news" style="background:#ededed;" >
    <h3 class="" style="border-bottom:dotted 1px black;">More News and Articles</h3>
     
     <?php  
@@ -150,7 +167,7 @@ include("include/navig.php");
           while($row=mysqli_fetch_array($query_run1)){
      ?>
            
-           <div class="row"  style="margin:0px 0px 2px 0px; padding:10px 0px 10px 0px;">
+           <div class="row"  style="margin:0px 0px 10px 0px; padding:10px 0px 10px 0px; border-bottom:solid 1px grey;">
            <div class="" style="width:auto;"> <!-- for images-->
          <?php echo" <img src='images/newsImg/".$row['image']." ' class='img-responsive' >";?>
 
@@ -158,7 +175,7 @@ include("include/navig.php");
            <a href="news.php?id=<?php echo $row['news_id'];?>" style="text-decoration:none; color:#000;">
            <h4 class="text-capitalize"><?php echo $row['title']; ?></h4>
            </a>
-           <hr>
+         
            </div>
 
 

@@ -273,8 +273,21 @@ background:  rgba(242,245,255,.8)url("../images/loading.gif") no-repeat 50% 55%;
 }
 .stick-video{
   position: fixed;
-  margin-top:60px;
-  top: 0;
-  left: 0;
+  top: 300px;
+  left:10px;
   z-index: 999;
-   width:25%;}
+}
+.video-button{
+  position: absolute;
+    top: 8px;
+    left:298px;
+    cursor: pointer;
+    font-size:34px; 
+    background:transparent;
+    border:none;color:grey;
+      margin-top:100px;
+}
+.video-box2{
+  width:360px;
+   margin-top:100px;
+}
